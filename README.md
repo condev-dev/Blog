@@ -63,7 +63,7 @@ Crafted with **HTML, CSS, JavaScript, Bootstrap, and FontAwesome**, built for **
 
 </div>
 
-🔗 **[Live Demo](https://condevtp.github.io/Blog/)**
+🔗 **[Live Demo](https://blog.condev.ir)**
 
 ---
 
