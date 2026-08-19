@@ -19,54 +19,6 @@ a {
   width: min(100% - 2.5rem, 72rem);
   margin: auto;
 }
-.mast,
-.foot {
-  background: #fef9ef;
-}
-.mast {
-  border-bottom: 1px solid #e7e5e4;
-}
-.mast .in {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: #b45309;
-  color: #fffdf7;
-  font-family: Lalezar, sans-serif;
-}
-.brand b {
-  font:
-    400 1.45rem Lalezar,
-    sans-serif;
-}
-.nav {
-  margin-inline-start: auto;
-  display: flex;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-}
-.nav a,
-.nav button {
-  padding: 0.6rem 0.8rem;
-  border-radius: 12px;
-  border: 0;
-  background: none;
-  color: #57534e;
-  cursor: pointer;
-}
 .main {
   flex: 1;
   display: grid;
@@ -145,18 +97,6 @@ h1 {
   color: #57534e;
   font-size: 0.9rem;
 }
-.foot {
-  padding: 2rem 0;
-  border-top: 1px solid #e7e5e4;
-}
-.bot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem;
-  font-size: 0.75rem;
-  color: #78716c;
-}
 .toast {
   position: fixed;
   left: 1rem;
@@ -168,9 +108,4 @@ h1 {
   box-shadow: 0 12px 32px rgba(41, 37, 36, 0.12);
   display: none;
   max-width: 24rem;
-}
-@media (max-width: 760px) {
-  .nav {
-    display: none;
-  }
 }

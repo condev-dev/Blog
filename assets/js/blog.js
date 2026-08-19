@@ -28,27 +28,8 @@
       el.remove();
     }, 4200);
   }
-  var nav = D.getElementById("nav"),
-    burger = D.getElementById("burger");
-  function setNav(o) {
-    B.classList.toggle("nav-open", o);
-    burger && burger.setAttribute("aria-expanded", o ? "true" : "false");
-  }
-  burger &&
-    burger.addEventListener("click", function () {
-      setNav(!B.classList.contains("nav-open"));
-    });
+
   D.addEventListener("click", function (e) {
-    if (e.target.closest("[data-close-nav]")) setNav(false);
-    if (e.target.closest("[data-writing]")) {
-      e.preventDefault();
-      setNav(false);
-      nfy(
-        "ثبت مقاله به زودی باز می شود",
-        "فعلا موضوعت را از صفحه ارتباط با ما بفرست.",
-        "info",
-      );
-    }
     if (e.target.closest("[data-copy]")) {
       var pre = e.target.closest(".code").querySelector("pre");
       navigator.clipboard.writeText(pre.innerText).then(
@@ -61,9 +42,7 @@
       );
     }
   });
-  D.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") setNav(false);
-  });
+
   var p = D.getElementById("progress");
   W.addEventListener("scroll", function () {
     var h = D.documentElement.scrollHeight - W.innerHeight;
@@ -114,8 +93,5 @@
       nfy("عضویتت ثبت شد", "از این شنبه ایمیل ها برایت می آید.", "ok");
       e.target.reset();
     }
-  });
-  W.addEventListener("resize", function () {
-    if (W.innerWidth >= 1024) setNav(false);
   });
 })();

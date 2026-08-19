@@ -16,61 +16,6 @@ a {
   width: min(100% - 2.5rem, 74rem);
   margin: auto;
 }
-.mast,
-.foot {
-  background: #fef9ef;
-}
-.mast {
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #e7e5e4;
-}
-.mast .in {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: #b45309;
-  color: #fffdf7;
-  font-family: Lalezar, sans-serif;
-}
-.brand b {
-  font:
-    400 1.45rem Lalezar,
-    sans-serif;
-}
-.nav {
-  margin-inline-start: auto;
-  display: flex;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-}
-.nav a,
-.nav button {
-  padding: 0.6rem 0.8rem;
-  border-radius: 12px;
-  border: 0;
-  background: none;
-  color: #57534e;
-  cursor: pointer;
-}
-.nav a[aria-current="page"] {
-  background: #fdf4e0;
-  color: #92400e;
-  font-weight: 700;
-}
 .hero {
   padding: 4rem 0 3rem;
   text-align: center;
@@ -272,36 +217,6 @@ p {
   cursor: pointer;
   font-weight: 700;
 }
-.foot {
-  margin-top: 5rem;
-  padding: 4rem 0 2rem;
-  border-top: 1px solid #e7e5e4;
-}
-.footg {
-  display: grid;
-  grid-template-columns: 1.6fr repeat(3, 1fr);
-  gap: 2rem;
-}
-.foot p,
-.foot a {
-  font-size: 0.9rem;
-  color: #57534e;
-}
-.ls {
-  display: grid;
-  gap: 0.5rem;
-}
-.bot {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.75rem;
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid #e7e5e4;
-  font-size: 0.75rem;
-  color: #78716c;
-}
 .toast {
   position: fixed;
   left: 1rem;
@@ -316,8 +231,7 @@ p {
 }
 @media (max-width: 900px) {
   .split,
-  .news,
-  .footg {
+  .news {
     grid-template-columns: 1fr;
   }
   .news form {
@@ -328,10 +242,5 @@ p {
   }
   .timeline li {
     grid-template-columns: 3rem 1rem 1fr;
-  }
-}
-@media (max-width: 760px) {
-  .nav {
-    display: none;
   }
 }

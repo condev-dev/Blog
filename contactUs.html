@@ -15,29 +15,93 @@
       href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..800&family=Lalezar&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/all.css" />
     <link rel="stylesheet" href="./assets/css/contactUs.css" />
   </head>
   <body>
-    <header class="mast">
-      <div class="wrap in">
-        <a class="brand" href="./index.html"
-          ><span class="mark">ب</span
-          ><span
-            ><b>بی باگ</b><br /><small style="color: #78716c"
-              >کد بنویس، از باگ نترس</small
-            ></span
-          ></a
-        >
-        <nav class="nav">
-          <a href="./index.html">خانه</a
-          ><a href="./categories.html">وبلاگ و مقالات</a
-          ><a href="./category.html">وب۳</a
-          ><button type="button" data-writing>ثبت مقاله</button
-          ><a href="./aboutUs.html">درباره ما</a
-          ><a href="./contactUs.html" aria-current="page">ارتباط با ما</a>
+    <div class="scrim" data-close-nav aria-hidden="true"></div>
+
+    <header class="mast" id="mast">
+      <div class="wrap mast__in">
+        <a class="brand" href="./index.html" aria-label="بی باگ، صفحه اصلی">
+          <span class="brand__mark" aria-hidden="true"
+            ><svg class="ic"><use href="#i-bug"></use></svg
+          ></span>
+          <span class="brand__txt"
+            ><b>بی باگ</b><small>کد بنویس، از باگ نترس</small></span
+          >
+        </a>
+
+        <nav class="nav" id="nav" aria-label="منوی اصلی">
+          <div class="nav__head">
+            <span>منو</span>
+            <button
+              class="ibtn"
+              type="button"
+              data-close-nav
+              aria-label="بستن منو"
+            >
+              <svg class="ic"><use href="#i-x"></use></svg>
+            </button>
+          </div>
+
+          <a class="nav__l" href="./index.html"
+            ><svg class="ic"><use href="#i-home"></use></svg> خانه</a
+          >
+          <a class="nav__l" href="./categories.html"
+            ><svg class="ic"><use href="#i-layers"></use></svg> وبلاگ و
+            مقالات</a
+          >
+          <a class="nav__l" href="./category.html"
+            ><svg class="ic"><use href="#i-box"></use></svg> وب۳</a
+          >
+          <button class="nav__l" type="button" data-writing>
+            <svg class="ic"><use href="#i-pen"></use></svg> ثبت مقاله
+          </button>
+          <a class="nav__l" href="./aboutUs.html"
+            ><svg class="ic"><use href="#i-user"></use></svg> درباره ما</a
+          >
+          <a class="nav__l" href="./contactUs.html" aria-current="page"
+            ><svg class="ic"><use href="#i-send"></use></svg> ارتباط با ما</a
+          >
+          <div class="nav__foot">
+            <a
+              class="social-mini"
+              href="https://github.com/condev-dev"
+              target="_blank"
+              rel="noopener me"
+              aria-label="گیت هاب"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-git"></use></svg></span
+            ></a>
+            <a
+              href="https://instagram.com/con.dev"
+              target="_blank"
+              rel="noopener me"
+              aria-label="اینستاگرام"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-ig"></use></svg></span
+            ></a>
+            <a href="mailto:condevtp@gmail.com" aria-label="ایمیل"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-mail"></use></svg></span
+            ></a>
+          </div>
         </nav>
+
+        <button
+          class="ibtn mast__burger"
+          id="burger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="باز کردن منو"
+        >
+          <svg class="ic"><use href="#i-menu"></use></svg>
+        </button>
       </div>
     </header>
+
     <main class="wrap">
       <section class="hero">
         <h1>بیایید <span style="color: #b45309">در تماس</span> باشیم</h1>
@@ -211,6 +275,7 @@
         </form>
       </section>
     </main>
+
     <footer class="foot">
       <div class="wrap">
         <div class="footg">
@@ -252,7 +317,22 @@
         </div>
       </div>
     </footer>
+
     <div class="toast" id="toast"></div>
     <script src="./assets/js/contactUs.js"></script>
+    <!-- Header -->
+    <script src="./assets/js/header.js"></script>
+    <!-- Load Icon Svg -->
+    <script>
+      fetch("./assets/icon/icons.svg")
+        .then((response) => response.text())
+        .then((data) => {
+          const div = document.createElement("div");
+          div.style.display = "none";
+          div.innerHTML = data;
+          document.body.insertBefore(div, document.body.childNodes[0]);
+        });
+    </script>
+    <!-- END - Load Icon Svg -->
   </body>
 </html>
