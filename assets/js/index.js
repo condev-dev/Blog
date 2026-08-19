@@ -7,59 +7,10 @@
       return "۰۱۲۳۴۵۶۷۸۹"[d];
     });
   }
-  var TI = {
-      ok: "#i-check",
-      err: "#i-x-c",
-      warn: "#i-alert",
-      info: "#i-info",
-    },
-    box = D.getElementById("toasts");
-  function esc(s) {
-    return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-    });
-  }
-  function notify(o) {
-    if (!box) return;
-    o = o || {};
-    var t = TI[o.type] ? o.type : "info",
-      dur = o.duration || (o.action ? 7000 : 5000);
-    while (box.children.length > 2) box.firstElementChild.remove();
-    var el = D.createElement("div");
-    el.className = "toast toast--" + t;
-    el.style.setProperty("--d", dur + "ms");
-    el.innerHTML =
-      '<span class="toast__ic" aria-hidden="true"><svg class="ic"><use href="' +
-      TI[t] +
-      '"></use></svg></span>' +
-      '<div class="toast__b"><p class="toast__t">' +
-      esc(o.title) +
-      "</p>" +
-      (o.text ? '<p class="toast__d">' + esc(o.text) + "</p>" : "") +
-      (o.action
-        ? '<a class="toast__a" href="' +
-          esc(o.action.href) +
-          '">' +
-          esc(o.action.label) +
-          '<svg class="ic"><use href="#i-arrow-l"></use></svg></a>'
-        : "") +
-      "</div>" +
-      '<button class="toast__x" type="button" aria-label="بستن اعلان"><svg class="ic"><use href="#i-x"></use></svg></button>' +
-      '<span class="toast__p"><i></i></span>';
-    box.appendChild(el);
-    function kill() {
-      if (el.dataset.gone) return;
-      el.dataset.gone = "1";
-      el.classList.add("out");
-      setTimeout(function () {
-        el.remove();
-      }, 240);
-    }
-    el.querySelector(".toast__x").addEventListener("click", kill);
-    el.querySelector(".toast__p i").addEventListener("animationend", kill);
-    setTimeout(kill, dur + 9000);
-  }
-  W.notify = notify;
+  // اعلان‌ها فقط از header.js می‌آیند تا همه‌ی صفحات رفتار یکسان داشته باشند.
+  var notify = function (options) {
+    if (typeof W.notify === "function") return W.notify(options);
+  };
 
   var prog = D.getElementById("progress");
   function frame() {

@@ -1,15 +1,22 @@
-const t = document.getElementById("toast");
-function show(msg) {
-  t.textContent = msg;
-  t.style.display = "block";
-  setTimeout(() => (t.style.display = "none"), 3200);
-}
-document.querySelector("[data-writing]").onclick = () =>
-  show("ثبت مقاله هنوز باز نشده. فعلا از صفحه ارتباط با ما بفرست.");
-document.getElementById("newsForm").addEventListener("submit", (e) => {
-  e.preventDefault();
-  const v = document.getElementById("em").value.trim();
-  if (!v) return show("ایمیلت را بنویس.");
-  show("عضویتت ثبت شد.");
-  e.target.reset();
-});
+/* aboutUs.js: فقط رفتار خبرنامه‌ی صفحه‌ی درباره */
+(function () {
+  "use strict";
+  var form = document.querySelector(".newsletter form, form[data-newsletter]");
+  var notify = window.notify;
+  if (!form) return;
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    var input = form.querySelector('input[type="email"], input');
+    var value = input ? input.value.trim() : "";
+    if (!value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+      if (input) input.classList.add("bad");
+      if (input) input.focus();
+      if (typeof notify === "function") notify({ type: "err", title: "ایمیل درست نیست", text: "یک ایمیل معتبر وارد کن." });
+      return;
+    }
+    if (input) input.classList.remove("bad");
+    if (typeof notify === "function") notify({ type: "ok", title: "عضویتت ثبت شد", text: "از این شنبه ایمیل‌ها برایت می‌آید." });
+    form.reset();
+  });
+})();

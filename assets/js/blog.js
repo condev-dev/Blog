@@ -1,97 +1,84 @@
+/* blog.js: فقط رفتارهای مخصوص صفحه‌ی مقاله */
 (function () {
-  var D = document,
-    B = D.body,
-    W = window,
-    box = D.getElementById("toasts");
-  function nfy(ti, tx, tp) {
-    var map = {
-        ok: "#i-check",
-        err: "#i-x",
-        info: "#i-info",
-        warn: "#i-alert",
-      },
-      el = D.createElement("div");
-    el.className = "toast toast--" + (tp || "info");
-    el.innerHTML =
-      '<span class="toast__ic"><svg class="ic"><use href="' +
-      map[tp || "info"] +
-      '"></use></svg></span><div><p class="toast__t">' +
-      ti +
-      "</p>" +
-      (tx ? '<p class="toast__d">' + tx + "</p>" : "") +
-      '</div><button class="toast__x" aria-label="بستن"><svg class="ic"><use href="#i-x"></use></svg></button>';
-    box.appendChild(el);
-    el.querySelector("button").onclick = function () {
-      el.remove();
-    };
-    setTimeout(function () {
-      el.remove();
-    }, 4200);
+  "use strict";
+  var D = document;
+  var W = window;
+
+  function notify(options) {
+    if (typeof W.notify === "function") return W.notify(options);
   }
 
-  D.addEventListener("click", function (e) {
-    if (e.target.closest("[data-copy]")) {
-      var pre = e.target.closest(".code").querySelector("pre");
-      navigator.clipboard.writeText(pre.innerText).then(
-        function () {
-          nfy("کد کپی شد", "الان می توانی بچسبانی.", "ok");
-        },
-        function () {
-          nfy("کپی نشد", "دستی کپی کن.", "err");
-        },
-      );
+  var progress = D.getElementById("progress");
+  function updateProgress() {
+    if (!progress) return;
+    var height = D.documentElement.scrollHeight - W.innerHeight;
+    progress.style.transform = "scaleX(" + (height > 0 ? Math.min(1, W.scrollY / height) : 0) + ")";
+  }
+  W.addEventListener("scroll", updateProgress, { passive: true });
+  updateProgress();
+
+  D.addEventListener("click", function (event) {
+    var copy = event.target.closest && event.target.closest("[data-copy]");
+    if (!copy) return;
+    var code = copy.closest(".code");
+    var pre = code && code.querySelector("pre");
+    if (!pre) return;
+
+    if (!navigator.clipboard || !navigator.clipboard.writeText) {
+      notify({ type: "warn", title: "کپی در این مرورگر کار نمی‌کند", text: "کد را دستی انتخاب و کپی کن." });
+      return;
     }
+    navigator.clipboard.writeText(pre.innerText).then(
+      function () {
+        notify({ type: "ok", title: "کد کپی شد", text: "الان می‌توانی بچسبانی." });
+      },
+      function () {
+        notify({ type: "err", title: "کپی نشد", text: "دستی کپی کن." });
+      },
+    );
   });
 
-  var p = D.getElementById("progress");
-  W.addEventListener("scroll", function () {
-    var h = D.documentElement.scrollHeight - W.innerHeight;
-    p.style.transform =
-      "scaleX(" + (h > 0 ? Math.min(1, W.scrollY / h) : 0) + ")";
-  });
-  var heads = [].slice.call(D.querySelectorAll(".prose h2[id]")),
-    links = [].slice.call(D.querySelectorAll(".toc a"));
-  if (W.IntersectionObserver) {
-    var io = new IntersectionObserver(
-      function (es) {
-        es.forEach(function (en) {
-          if (en.isIntersecting)
-            links.forEach(function (a) {
-              a.classList.toggle(
-                "on",
-                a.getAttribute("href") === "#" + en.target.id,
-              );
-            });
+  var heads = [].slice.call(D.querySelectorAll(".prose h2[id]"));
+  var links = [].slice.call(D.querySelectorAll(".toc a"));
+  if (heads.length && links.length && W.IntersectionObserver) {
+    var tocObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (link) {
+          link.classList.toggle("on", link.getAttribute("href") === "#" + entry.target.id);
         });
-      },
-      { rootMargin: "-18% 0px -72% 0px" },
-    );
-    heads.forEach(function (h) {
-      io.observe(h);
-    });
-    var rv = new IntersectionObserver(function (es) {
-      es.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add("in");
-          rv.unobserve(en.target);
+      });
+    }, { rootMargin: "-18% 0px -72% 0px" });
+    heads.forEach(function (head) { tocObserver.observe(head); });
+  }
+
+  var reveal = [].slice.call(D.querySelectorAll(".reveal"));
+  if (W.IntersectionObserver && reveal.length) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          revealObserver.unobserve(entry.target);
         }
       });
     });
-    D.querySelectorAll(".reveal").forEach(function (el) {
-      rv.observe(el);
-    });
+    reveal.forEach(function (element) { revealObserver.observe(element); });
+  } else {
+    reveal.forEach(function (element) { element.classList.add("in"); });
   }
-  D.addEventListener("submit", function (e) {
-    if (e.target.matches("[data-validate]")) {
-      e.preventDefault();
-      var inp = e.target.querySelector("input");
-      if (!inp.value.trim()) {
-        nfy("ایمیلت را بنویس", "بدون ایمیل چیزی برای فرستادن ندارم.", "err");
-        inp.focus();
-        return;
-      }
-      nfy("عضویتت ثبت شد", "از این شنبه ایمیل ها برایت می آید.", "ok");
-      e.target.reset();
+
+  D.addEventListener("submit", function (event) {
+    var form = event.target;
+    if (!form.matches("[data-validate]")) return;
+    event.preventDefault();
+    var input = form.querySelector("input[type=email], input");
+    var value = input ? input.value.trim() : "";
+    if (!value || (input && input.type === "email" && !/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(value))) {
+      notify({ type: "err", title: "ایمیل را درست وارد کن", text: "بدون ایمیل چیزی برای فرستادن ندارم." });
+      if (input) input.focus();
+      return;
     }
+    notify({ type: "ok", title: "عضویتت ثبت شد", text: "از این شنبه ایمیل‌ها برایت می‌آید." });
+    form.reset();
   });
 })();
