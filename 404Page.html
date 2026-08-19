@@ -1,305 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>بی‌باگ — پیدا نشد!</title>
-    <meta
-      name="title"
-      content="بی‌باگ — مقالات و آموزش‌های عملی برنامه‌نویسی"
-    />
-    <meta
-      name="description"
-      content="در بی‌باگ با آموزش‌های کاربردی، رفع باگ‌های رایج و راه‌حل‌های عملی، کدنویسی را ساده و بدون استرس یاد بگیر. مناسب برای مبتدی تا حرفه‌ای."
-    />
-    <meta
-      name="keywords"
-      content="برنامه‌نویسی, آموزش برنامه‌نویسی, رفع باگ, وب‌دیولپمنت, کدنویسی, JavaScript, Python"
-    />
-    <meta name="author" content="بی‌باگ" />
-    <meta name="robots" content="index, follow" />
 
-    <meta name="language" content="fa-IR" />
 
-    <meta property="og:locale" content="fa_IR" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
-    />
-    <meta
-      property="og:description"
-      content="یادگیری ساده و بی‌استرس برنامه‌نویسی همراه با رفع باگ‌های واقعی."
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
-    />
-    <meta
-      name="twitter:description"
-      content="مقالات و آموزش‌های کاربردی برنامه‌نویسی برای رشد سریع و بدون باگ."
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "بی‌باگ",
-        "description": "آموزش‌های کاربردی برنامه‌نویسی و راهکارهای رفع باگ",
-        "logo": "",
-        "sameAs": []
-      }
-    </script>
-
-    <meta http-equiv="cleartype" content="on" />
-
-    <!-- Site Icon -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>صفحه پیدا نشد — بی باگ</title>
+    <meta name="robots" content="noindex,nofollow" />
     <link rel="icon" href="./assets/img/logo.jpg" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css" />
-    <!-- Fontawsome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..800&family=Lalezar&display=swap"
       rel="stylesheet"
-      href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css"
     />
-    <!-- Custom Css -->
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/404.css" />
+      <link rel="stylesheet" href="./assets/css/404.css">
+
+
   </head>
-  <body
-    data-theme="light"
-    id="body"
-    class="d-flex justify-content-center align-items-center px-4 pt-3 flex-column"
-  >
-    <div id="overlay" onclick="closeMenu()"></div>
-    <header class="d-flex flex-column w-100 p-3 rounded">
-      <div
-        class="w-100 d-flex justify-content-between align-items-center flex-row-reverse flex-sm-row"
-      >
-        <div
-          class="d-flex justify-content-sm-center justify-content-between align-items-center flex-row-reverse flex-sm-row w-sm-100"
+  <body>
+    <header class="mast">
+      <div class="wrap in">
+        <a class="brand" href="./index.html"
+          ><span class="mark">ب</span
+          ><span
+            ><b>بی باگ</b><br /><small style="color: #78716c"
+              >کد بنویس، از باگ نترس</small
+            ></span
+          ></a
         >
-          <a
-            href="#"
-            class="d-flex justify-content-between align-items-center logo"
-          >
-            <img
-              src="./assets/img/logo.jpg"
-              alt="BiBag"
-              class="img-fluid rounded shadow-sm"
-            />
-            <small class="mx-2 d-none d-sm-flex">بی باگ</small>
-          </a>
-
-          <input
-            type="search"
-            class="form-control mr-3 mr-sm-4"
-            placeholder="جستجو در بی باگ ..."
-          />
-        </div>
-        <div class="d-flex justify-content-center align-items-center" id="ConTogglePC" >
-      
-          <button class="login-btn btn rounded d-none d-sm-block">
-            ورود / ثبت‌نام
-          </button>
-        </div>
-        <button
-          class="menu-btn d-flex justify-content-center align-items-center shadow-lg d-sm-none"
-          onclick="Toggle_Menu_Mobile()"
-        >
-          <i class="fa fa-bars m-0 p-0"></i>
-        </button>
-      </div>
-
-      <div
-        class="d-flex flex-column flex-sm-row justify-content-start align-items-start align-items-md-center header-menu mt-3 pt-1 position-relative menu-mobile"
-        id="menu_mobile"
-      >
-        <div
-          class="d-flex justify-content-between align-items-center mb-3 mt-1 w-100 d-sm-none"
-        >
-          <button
-            class="menu-btn d-flex justify-content-center align-items-center d-sm-none"
-            style="width: fit-content !important"
-            onclick="Toggle_Menu_Mobile()"
-          >
-            <i
-              style="font-size: 16px !important"
-              class="fa fa-times m-0 p-0"
-            ></i>
-          </button>
-
-          <button class="login-btn btn rounded">ورود / ثبت‌نام</button>
-        </div>
-
-        <a href="./index.html" class="mr-2">
-          <i class="fa fa-home"></i>
-          خانه
-        </a>
-        <a href="./categories.html">
-          <i class="fas fa-blog"></i>
-          وبلاگ و مقالات
-        </a>
-        <a href="#">
-          <i class="fa fa-plus"></i>
-          ثبت مقاله
-        </a>
-        <a href="./aboutUs.html">
-          <i class="fa fa-user"></i>
-          درباره ی ما
-        </a>
-        <a href="./contactUs.html">
-          <i class="fa fa-phone"></i>
-          ارتباط با ما
-        </a>
-
-        <div
-          class="d-flex justify-content-between align-items-center w-100 mt-4 px-2 d-sm-none"
-          id="ConToggleMobile"
-        >
-          <small class="theme-text">تغییر تم:</small>
-      
-        </div>
+        <nav class="nav">
+          <a href="./index.html">خانه</a
+          ><a href="./categories.html">وبلاگ و مقالات</a
+          ><a href="./category.html">وب۳</a
+          ><button type="button" data-writing>ثبت مقاله</button
+          ><a href="./aboutUs.html">درباره ما</a
+          ><a href="./contactUs.html">ارتباط با ما</a>
+        </nav>
       </div>
     </header>
-
-    <body class="w-100">
-      <!-- Intro -->
-
-      <div
-        class="d-flex justify-content-center align-items-center flex-column con-intro-404 pb-lg-2 pt-lg-3"
-      >
-        <img
-          src="./assets/img/./notfound.png"
-          alt="BiBag"
-          class="img-fluid mt-4 pt-2 mt-lg-0 pt-lg-0"
-        />
-
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#">بی باگ</a></li>
-          <li class="breadcrumb-item active" aria-current="page">صفحه‌ی 404</li>
-        </ol>
-
-        <h1 class="mt-sm-5 pt-sm-3 text-center">
-          صفحه‌ای
-          <span> یافت نشد!</span>
-        </h1>
-
-        <div class="d-flex justify-content-center align-items-center mt-5">
-          <button class="btn-404 shadow-sm">بازگشت به صفحه‌اصلی</button>
-        </div>
-      </div>
-      <!-- END Intro -->
-    </body>
-
-    <!-- Margin -->
-    <div class="mt-5 pt-lg-4"></div>
-    <!-- Margin -->
-
-    <footer
-      class="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100 rounded p-5 mt-5"
-    >
-      <div
-        class="d-flex justify-content-lg-start justify-content-center align-items-center w-50 w-sm-100"
-      >
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">دسته بندی ها</h4>
-          <a href="#" class="footer-link"> برنامه‌نویسی </a>
-          <a href="#" class="footer-link"> هوش‌مصنوعی </a>
-          <a href="#" class="footer-link"> ارز‌دیجیتال </a>
-          <a href="#" class="footer-link"> ماشین‌لرنینگ </a>
-          <a href="#" class="footer-link"> استایل‌دهی </a>
-        </div>
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">ارتباط با ما</h4>
-          <a href="#" class="footer-link"> خدمات ما </a>
-          <a href="#" class="footer-link"> درباره‌ی ما </a>
-          <a href="#" class="footer-link"> همکاری با ما </a>
-          <a href="#" class="footer-link"> تبلیغات </a>
-          <a href="#" class="footer-link"> ایمیل ما </a>
-        </div>
-      </div>
-
-      <div
-        class="d-flex flex-column justify-content-center align-items-center w-50 aboutus mt-5 mt-lg-0 w-sm-100"
-      >
-        <h4 class="fw-bold footer-title mb-3">درباره ی بی باگ</h4>
-        <p class="mt-2">
-          بی‌باگ؛ محلی برای یادگیری اصولی، ساده و لذت‌بخش برنامه‌نویسی و
-          تکنولوژی. اینجا تلاش می‌کنیم با آموزش‌های کاربردی، تجربه‌های واقعی و
-          رفع باگ‌های رایج، مسیر رشد شما را هموار کنیم. هدف ما ساخت جامعه‌ای از
-          برنامه‌نویسان خلاق، مستقل و همیشه در حال یادگیری است. همراه ما بمان تا
-          دنیای کدنویسی را بی‌استرس و بی‌باگ تجربه کنیم.
+    <main class="main">
+      <div class="wrap box">
+        <div class="code">۴۰۴</div>
+        <h1>صفحه پیدا نشد</h1>
+        <p class="lead">
+          آدرسی که دنبالش بودی اینجا نیست. یا لینک قدیمی بوده، یا صفحه جابه جا
+          شده، یا آدرس را اشتباه زدی.
         </p>
-
-        <div
-          class="d-flex justify-content-center align-items-center mt-3 mt-lg-0"
-        >
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/telegram.png"
-              data-dark="./assets/img/telegram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/telegram.png"
-              alt="telegram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/instagram.png"
-              data-dark="./assets/img/instagram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/instagram.png"
-              alt="instagram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/gmail.png"
-              data-dark="./assets/img/gmail_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/gmail.png"
-              alt="gmail"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/youtube.png"
-              data-dark="./assets/img/youtube_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/youtube.png"
-              alt="youtube"
-            />
-          </div>
+        <div class="btns">
+          <a class="btn" href="./index.html">برگرد به صفحه اصلی</a
+          ><a class="btn ghost" href="./categories.html">جستجو در مقالات</a>
         </div>
+        <div class="grid">
+          <a class="card" href="./categories.html"
+            ><small style="color: #78716c; letter-spacing: 0.08em">دسته</small>
+            <h3>برنامه نویسی</h3>
+            <p>مقاله های پایه تا حرفه ای</p></a
+          ><a class="card" href="./category.html"
+            ><small style="color: #78716c; letter-spacing: 0.08em">دسته</small>
+            <h3>وب۳</h3>
+            <p>قرارداد، کیف پول و امنیت</p></a
+          ><a class="card" href="./aboutUs.html"
+            ><small style="color: #78716c; letter-spacing: 0.08em">صفحه</small>
+            <h3>درباره ما</h3>
+            <p>اگر می خواهی بدانی اینجا چرا ساخته شد</p></a
+          ><a class="card" href="./contactUs.html"
+            ><small style="color: #78716c; letter-spacing: 0.08em">کمک</small>
+            <h3>گزارش لینک خراب</h3>
+            <p>اگر از جایی به این صفحه پرت شدی، خبر بده</p></a
+          >
+        </div>
+      </div>
+    </main>
+    <footer class="foot">
+      <div class="wrap bot">
+        <span>© ۱۴۰۴ بی باگ</span><span>طراحی و توسعه: کان دو</span>
       </div>
     </footer>
+    <div class="toast" id="toast"></div>
 
-    <small class="mb-2 mt-3 text-end">
-      تمام حقوق مادی و معنوی این وب سایت متعلق به <span>بی باگ</span> است.
-    </small>
+    <script src="./assets/js/404.js"></script>
 
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="./assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Custom -->
-    <script src="./assets/js/index.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".carousel").carousel({
-          interval: 6000,
-        });
-      });
-    </script>
+
+
   </body>
 </html>

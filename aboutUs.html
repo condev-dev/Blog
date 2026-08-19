@@ -1,774 +1,300 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>بی‌باگ — مقالات و آموزش‌های عملی برنامه‌نویسی</title>
-    <meta
-      name="title"
-      content="بی‌باگ — مقالات و آموزش‌های عملی برنامه‌نویسی"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>درباره بی باگ</title>
     <meta
       name="description"
-      content="در بی‌باگ با آموزش‌های کاربردی، رفع باگ‌های رایج و راه‌حل‌های عملی، کدنویسی را ساده و بدون استرس یاد بگیر. مناسب برای مبتدی تا حرفه‌ای."
+      content="بی باگ چیست، چرا ساخته شد و کان دو کیست."
     />
-    <meta
-      name="keywords"
-      content="برنامه‌نویسی, آموزش برنامه‌نویسی, رفع باگ, وب‌دیولپمنت, کدنویسی, JavaScript, Python"
-    />
-    <meta name="author" content="بی‌باگ" />
-    <meta name="robots" content="index, follow" />
-
-    <meta name="language" content="fa-IR" />
-
-    <meta property="og:locale" content="fa_IR" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
-    />
-    <meta
-      property="og:description"
-      content="یادگیری ساده و بی‌استرس برنامه‌نویسی همراه با رفع باگ‌های واقعی."
-    />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
-    />
-    <meta
-      name="twitter:description"
-      content="مقالات و آموزش‌های کاربردی برنامه‌نویسی برای رشد سریع و بدون باگ."
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "بی‌باگ",
-        "description": "آموزش‌های کاربردی برنامه‌نویسی و راهکارهای رفع باگ",
-        "logo": "",
-        "sameAs": []
-      }
-    </script>
-
-    <meta http-equiv="cleartype" content="on" />
-
-    <!-- Site Icon -->
     <link rel="icon" href="./assets/img/logo.jpg" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css" />
-    <!-- Fontawsome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..800&family=Lalezar&display=swap"
       rel="stylesheet"
-      href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css"
     />
-    <!-- Custom Css -->
-    <link rel="stylesheet" href="./assets/css/index.css" />
-    <link rel="stylesheet" href="./assets/css/aboutUs.css" />
+      <link rel="stylesheet" href="./assets/css/aboutUs.css">
+
+  
   </head>
-  <body
-    data-theme="light"
-    id="body"
-    class="d-flex justify-content-center align-items-center px-4 pt-3 flex-column"
-  >
-    <div id="overlay" onclick="closeMenu()"></div>
-    <header class="d-flex flex-column w-100 p-3 rounded">
-      <div
-        class="w-100 d-flex justify-content-between align-items-center flex-row-reverse flex-sm-row"
-      >
-        <div
-          class="d-flex justify-content-sm-center justify-content-between align-items-center flex-row-reverse flex-sm-row w-sm-100"
+  <body>
+    <header class="mast">
+      <div class="wrap in">
+        <a class="brand" href="./index.html"
+          ><span class="mark">ب</span
+          ><span
+            ><b>بی باگ</b><br /><small style="color: #78716c"
+              >کد بنویس، از باگ نترس</small
+            ></span
+          ></a
         >
-          <a
-            href="#"
-            class="d-flex justify-content-between align-items-center logo"
-          >
-            <img
-              src="./assets/img/logo.jpg"
-              alt="BiBag"
-              class="img-fluid rounded shadow-sm"
-            />
-            <small class="mx-2 d-none d-sm-flex">بی باگ</small>
-          </a>
-
-          <input
-            type="search"
-            class="form-control mr-3 mr-sm-4"
-            placeholder="جستجو در بی باگ ..."
-          />
-        </div>
-        <div
-          class="d-flex justify-content-center align-items-center"
-          id="ConTogglePC"
-        >
-          <button class="login-btn btn rounded d-none d-sm-block">
-            ورود / ثبت‌نام
-          </button>
-        </div>
-        <button
-          class="menu-btn d-flex justify-content-center align-items-center shadow-lg d-sm-none"
-          onclick="Toggle_Menu_Mobile()"
-        >
-          <i class="fa fa-bars m-0 p-0"></i>
-        </button>
-      </div>
-
-      <div
-        class="d-flex flex-column flex-sm-row justify-content-start align-items-start align-items-md-center header-menu mt-3 pt-1 position-relative menu-mobile"
-        id="menu_mobile"
-      >
-        <div
-          class="d-flex justify-content-between align-items-center mb-3 mt-1 w-100 d-sm-none"
-        >
-          <button
-            class="menu-btn d-flex justify-content-center align-items-center d-sm-none"
-            style="width: fit-content !important"
-            onclick="Toggle_Menu_Mobile()"
-          >
-            <i
-              style="font-size: 16px !important"
-              class="fa fa-times m-0 p-0"
-            ></i>
-          </button>
-
-          <button class="login-btn btn rounded">ورود / ثبت‌نام</button>
-        </div>
-
-        <a href="./index.html" class="mr-2">
-          <i class="fa fa-home"></i>
-          خانه
-        </a>
-        <a href="./categories.html">
-          <i class="fas fa-blog"></i>
-          وبلاگ و مقالات
-        </a>
-        <a href="#">
-          <i class="fa fa-plus"></i>
-          ثبت مقاله
-        </a>
-        <a href="./aboutUs.html">
-          <i class="fa fa-user"></i>
-          درباره ی ما
-        </a>
-        <a href="./contactUs.html">
-          <i class="fa fa-phone"></i>
-          ارتباط با ما
-        </a>
-
-        <div
-          class="d-flex justify-content-between align-items-center w-100 mt-4 px-2 d-sm-none"
-          id="ConToggleMobile"
-        >
-          <small class="theme-text">تغییر تم:</small>
-        </div>
+        <nav class="nav">
+          <a href="./index.html">خانه</a
+          ><a href="./categories.html">وبلاگ و مقالات</a
+          ><a href="./category.html">وب۳</a
+          ><button type="button" data-writing>ثبت مقاله</button
+          ><a href="./aboutUs.html" aria-current="page">درباره ما</a
+          ><a href="./contactUs.html">ارتباط با ما</a>
+        </nav>
       </div>
     </header>
-
-    <body class="w-100">
-      <!-- Intro -->
-      <div
-        class="w-100 d-flex flex-column justify-content-center align-items-center intro-aboutUs mt-5 rounded p-5 mb-lg-5"
-      >
-        <img src="./assets/img/logo.jpg" class="shadow-sm" alt="بی باگ" />
-
-        <h1 class="mt-4 pt-2">
-          درباره‌ی ما <span class="mx-1 mx-lg-2">بی باگ!</span>
+    <main class="wrap">
+      <section class="hero">
+        <img src="./assets/img/logo.jpg" alt="لوگوی بی باگ" />
+        <h1>
+          درباره <em style="font-style: normal; color: #b45309">بی باگ</em>
         </h1>
-
-        <p class="mt-2 mb-lg-4">
-          دسترسی آسان، همیشگی و همگانی به مقالات آکادمیک و تخصصی
+        <p class="lead">
+          بی باگ برای این ساخته شد که برنامه نویسی را از وسط دردسرهای واقعی یاد
+          بگیری، نه از وسط مثال های تمیز و غیر واقعی.
         </p>
-      </div>
-      <!-- END Intro -->
-
-      <!-- Section-1 -->
-      <section
-        class="d-flex justify-content-between align-items-center w-100 section1 flex-column-reverse flex-lg-row-reverse mt-5 mb-lg-5"
-      >
-        <img src="./assets/img/aboutUs.png" alt="بی باگ" />
-
-        <div class="pl-lg-5">
-          <div
-            class="d-flex justify-content-lg-start justify-content-center align-items-center mt-2 mt-lg-0"
-          >
-            <span class="fa fa-star"></span>
-            <h3>درباره ی بی باگ</h3>
+      </section>
+      <section class="section split">
+        <div>
+          <span class="eyebrow">چرا بی باگ</span>
+          <h2 style="margin: 1rem 0">
+            آموزش وقتی به درد می خورد که از مسئله شروع شود
+          </h2>
+          <p style="color: #57534e">
+            بیشتر آموزش ها از دستور و تعریف شروع می شوند. زندگی واقعی از باگ،
+            گیر، خطا و عجیب شدن اوضاع شروع می شود. بی باگ دقیقا همان نقطه را
+            برمی دارد و از همان جا آموزش را جلو می برد.
+          </p>
+          <p style="color: #57534e; margin-top: 1rem">
+            اینجا قرار نیست چیزی حفظ کنی. قرار است یک الگو ذهنی بگیری که دفعه
+            بعد، خودت راه را پیدا کنی.
+          </p>
+        </div>
+        <div class="ph">
+          <img src="./assets/img/intro.png" alt="نمایی از نوشتن کد" />
+        </div>
+      </section>
+      <section class="section">
+        <h2 style="text-align: center; margin-bottom: 2rem">
+          بی باگ در یک نگاه
+        </h2>
+        <div class="facts">
+          <div class="fact"><b>۱۴۰</b><span>مقاله دسته بندی شده</span></div>
+          <div class="fact"><b>۳٫۲k</b><span>دنبال کننده فارسی</span></div>
+          <div class="fact"><b>۸۳٪</b><span>نرخ باز شدن ایمیل</span></div>
+          <div class="fact"><b>۰</b><span>تبلیغ و اسپانسر</span></div>
+        </div>
+      </section>
+      <section class="section">
+        <h2 style="text-align: center; margin-bottom: 2rem">مسیر تا امروز</h2>
+        <ul class="timeline">
+          <li>
+            <time>۱۴۰۲</time><span class="dot"></span>
+            <div>
+              <h3
+                style="
+                  font:
+                    700 1rem Vazirmatn,
+                    sans-serif;
+                "
+              >
+                شروع با یک مقاله
+              </h3>
+              <p style="color: #57534e">
+                اولین مقاله از یک باگ async شروع شد. همان شد هسته اصلی مدل کار.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>۱۴۰۲</time><span class="dot"></span>
+            <div>
+              <h3
+                style="
+                  font:
+                    700 1rem Vazirmatn,
+                    sans-serif;
+                "
+              >
+                رسیدن به ۱۵ مقاله
+              </h3>
+              <p style="color: #57534e">
+                کم کم معلوم شد آدم ها بیشتر دنبال تجربه واقعی اند تا آموزش حفظی.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>۱۴۰۳</time><span class="dot"></span>
+            <div>
+              <h3
+                style="
+                  font:
+                    700 1rem Vazirmatn,
+                    sans-serif;
+                "
+              >
+                نسخه اول سایت
+              </h3>
+              <p style="color: #57534e">
+                کار می کرد، اما از نظر تجربه کاربری و RTL هنوز آن چیزی نبود که
+                باید می شد.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>۱۴۰۳</time><span class="dot"></span>
+            <div>
+              <h3
+                style="
+                  font:
+                    700 1rem Vazirmatn,
+                    sans-serif;
+                "
+              >
+                تمرکز روی فرانت اند و وب۳
+              </h3>
+              <p style="color: #57534e">
+                از همین جا هویت بی باگ روشن تر شد: عملی، فنی، بی حاشیه.
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>۱۴۰۴</time><span class="dot"></span>
+            <div>
+              <h3
+                style="
+                  font:
+                    700 1rem Vazirmatn,
+                    sans-serif;
+                "
+              >
+                نسخه تازه و یکدست
+              </h3>
+              <p style="color: #57534e">
+                همین نسخه ای که الان می بینی: تمیزتر، راست به چپ درست، و خیلی
+                خواناتر.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </section>
+      <section class="section split">
+        <div>
+          <span class="eyebrow">نویسنده</span>
+          <h2 style="margin: 1rem 0">کان دو</h2>
+          <p style="color: #57534e">
+            توسعه دهنده وب و آدمی که از تجربه های واقعی پروژه ها می نویسد. نه
+            برای ژست آموزشی، برای این که موقع گیر کردن واقعا به درد بخورد.
+          </p>
+          <div class="tags" style="margin-top: 1rem">
+            <span class="tag">جاوااسکریپت</span><span class="tag">React</span
+            ><span class="tag">CSS</span><span class="tag">RTL</span
+            ><span class="tag">وب۳</span><span class="tag">Solidity</span>
           </div>
-          <p class="mt-4 ml-lg-5">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،
-            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
-            زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و
-            متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-            رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد
-            کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
-            راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-            حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
-            طراحی اساسا مورد استفاده قرار گیرد.
+        </div>
+        <div class="card">
+          <h3
+            style="
+              font:
+                700 1rem Vazirmatn,
+                sans-serif;
+              margin-bottom: 1rem;
+            "
+          >
+            مسیر کاری
+          </h3>
+          <p style="color: #57534e">۱۳۹۸ تا ۱۴۰۱: فرانت اند در چند تیم مختلف</p>
+          <p style="color: #57534e; margin-top: 0.75rem">
+            ۱۴۰۱ تا ۱۴۰۲: پروژه های شخصی و کار آزاد
+          </p>
+          <p style="color: #57534e; margin-top: 0.75rem">
+            ۱۴۰۲ تا امروز: نوشتن، ساختن، و بهتر کردن بی باگ
           </p>
         </div>
       </section>
-      <!-- END Section-1 -->
-      <!-- Margin -->
-      <section class="mt-lg-3"></section>
-      <!-- Margin -->
-      <!-- Description -->
-      <div class="m_title w-100 text-right mt-5 pt-2 pt-lg-0">
-        <div
-          class="d-flex justify-content-lg-start align-items-lg-start justify-content-center align-items-start"
-        >
-          <i class="fa fa-star m-0 p-0 ml-3"></i>
-          <h2 class="m-0 p-0">خدمات <span>بی باگ</span></h2>
-        </div>
-      </div>
-      <p class="text-about mt-3 pt-2 pt-lg-0">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
-        از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای
-        متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با
-        نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان
-        خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-        داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان
-        رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات
-        پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. لورم ایپسوم
-        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان
-        گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که
-        لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
-        بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال
-        و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها
-        شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ
-        پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و
-        دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان
-        مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
-        دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-      </p>
-      <section
-        class="d-flex justify-content-between align-items-center w-100 mt-2 mt-lg-4 flex-wrap mb-lg-5"
-      >
-        <div
-          class="box-description d-flex justify-content-center align-items-center flex-column rounded"
-        >
-          <h4>ساعت مطالعه</h4>
-          <p>
-            دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.
-          </p>
-        </div>
-
-        <div
-          class="box-description d-flex justify-content-center align-items-center flex-column rounded mt-3 mt-md-0"
-        >
-          <h4>ساعت مطالعه</h4>
-          <p>
-            دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.
-          </p>
-        </div>
-
-        <div
-          class="box-description d-flex justify-content-center align-items-center flex-column rounded mt-3 mt-md-0"
-        >
-          <h4>ساعت مطالعه</h4>
-          <p>
-            دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.دانشجویان ما هر ۶ ماه، بیش از دو میلیون ساعت آموزش را مطالعه
-            می‌کنند.
-          </p>
+      <section class="section">
+        <h2 style="text-align: center; margin-bottom: 2rem">سوال های رایج</h2>
+        <div class="faq">
+          <details>
+            <summary>بی باگ رایگان است؟</summary>
+            <p>بله. تمام محتوا رایگان است و خبری از paywall نیست.</p>
+          </details>
+          <details>
+            <summary>می شود مقاله مهمان فرستاد؟</summary>
+            <p>بله، اگر موضوع خوب و تجربه واقعی پشتش باشد، چرا که نه.</p>
+          </details>
+          <details>
+            <summary>چرا متن ها این قدر مستقیم اند؟</summary>
+            <p>چون کاربر وسط کار است، نه وسط یک بروشور تبلیغاتی.</p>
+          </details>
+          <details>
+            <summary>برای مبتدی ها هم مناسب است؟</summary>
+            <p>
+              بله، ولی از مقاله های پایه و دسته بندی شده شروع کن، نه از هر چیزی
+              که جلویت بود.
+            </p>
+          </details>
         </div>
       </section>
-      <!-- END Description -->
-      <!-- Margin -->
-      <section class="mt-lg-1 mt-4"></section>
-      <!-- Margin -->
-
-      <!-- Weblog -->
-
-      <section class="conarticle pb-lg-5 mt-lg-5 pt-lg-5 mt-4 pt-4 w-100">
-        <section
-          class="d-flex flex-column align-items-center justify-content-center m-auto p-lg-0 mt-lg-4 w-100"
-        >
-          <div
-            class="d-flex justify-content-lg-start justify-content-center align-items-center mt-2 mt-lg-0 section1 mb-lg-3"
-          >
-            <span class="fa fa-star"></span>
-            <h3>وبلاگ های ما</h3>
-          </div>
-
-          <section
-            class="d-flex justify-content-center justify-content-lg-between align-items-center w-100 mt-3 mt-lg-4 pt-4 pt-lg-5"
-            id="conblogs"
-          >
-            <a
-              href="#"
-              class="blognew d-flex justify-content-center align-items-start flex-column"
-            >
-              <img src="./assets/img/box/box10.jpg" alt="وبلاگ" />
-
-              <h3 class="mt-4">آموزش بازی فرست پرسن هایلو</h3>
-
-              <p class="mt-2">
-                اگر به دنبال یک بازی هیجان‌انگیز، ساده اما پربازده در دنیای
-                آنلاین هستید، فرست پرسن هایلو یک گزینه عالی برای شماست. با
-                ترکیبی از شانس و مدیریت ریسک هوشمندانه، می‌توانید این بازی را به
-                فرصتی سودآور تبدیل کنید. فرست پرسن هایلو چیست؟ فرست پرسن هایلو
-                یک بازی کارتی آنلاین است که توسط شرکت‌های برجسته‌ای مانند
-                Evolution Gaming طراحی شده است. گیم‌پلی بازی ساده است: یک کارت
-                نمایش داده می‌شود و باید پیش‌بینی کنید که کارت بعدی بالاتر
-                (High)، پایین‌تر (Low) یا همان کارت (Same) خواهد بود. آموزش
-                گام‌به‌گام بازی فرست پرسن هایلو انتخاب سایت شرط‌بندی معتبر: وارد
-                سایت معتبری مانند LiveBet Casino شوید. انتخاب بازی فرست پرسن
-                هایلو: به بخش بازی‌های یی رفته و فرست پرسن هایلو را انتخاب کنید.
-                مشاهده اولین کارت: یک کارت نمایش داده می‌شود (مثلاً 7 یا 8).
-              </p>
-
-              <div
-                class="w-100 d-flex justify-content-end align-items-center btnblog"
-              >
-                <p>ادامه</p>
-                <i class="fa fa-angle-left"></i>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="blognew d-flex justify-content-center align-items-start flex-column"
-            >
-              <img src="./assets/img/box/box14.jpg" alt="وبلاگ" />
-
-              <h3 class="mt-4">آموزش شارژ حساب کاربری</h3>
-
-              <p class="mt-2">
-                در سایت شرطبندی لایو بت (Casinolivebet)، یکی از سریع‌ترین و
-                امن‌ترین روش‌های واریز و برداشت، استفاده از ارزهای دیجیتال است.
-                این روش به کاربران ایرانی امکان می‌دهد بدون نیاز به کارت بانکی و
-                با امنیت کامل حساب خود را شارژ کنند. پشتیبانی از بیش از ۱۰
-                رمزارز معروف دنیا از جمله: تتر (USDT) بیت‌کوین (BTC) اتریوم
-                (ETH) ترون (TRX) دوج‌کوین (DOGE) ریپل (XRP) لایت‌کوین (LTC)
-                بایننس‌کوین (BNB) کاردانو (ADA) شیبا (SHIB) پرفکت‌مانی (Perfect
-                Money)
-              </p>
-
-              <div
-                class="w-100 d-flex justify-content-end align-items-center btnblog"
-              >
-                <p>ادامه</p>
-                <i class="fa fa-angle-left"></i>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="blognew d-flex justify-content-center align-items-start flex-column"
-            >
-              <img src="./assets/img/box/box4.jpg" alt="وبلاگ" />
-
-              <h3 class="mt-4">آموزش بازی بینگو (Bingo)</h3>
-
-              <p class="mt-2">
-                بینگو یکی از بازی‌های محبوب و سرگرم‌کننده در میان بازی‌های یی
-                است که در سایت لایو بت (Casinolivebet) به‌صورت آنلاین، زنده و با
-                جوایز واقعی ارائه می‌شود. این بازی همزمان ساده و پُرهیجان است،
-                به‌ویژه زمانی که به‌صورت زنده با دیگر کاربران در حال رقابت باشی.
-                قوانین و نحوه بازی بینگو: شروع بازی: در هر دور، بازیکن یک یا چند
-                کارت بینگو دریافت می‌کند. هر کارت شامل شبکه‌ای از اعداد است که
-                به‌صورت تصادفی چیده شده‌اند (معمولاً ۵×۵). اعلام شماره‌ها:
-                گرداننده (دیلر یا سیستم خودکار) شروع به اعلام شماره‌های تصادفی
-                می‌کند.
-              </p>
-
-              <div
-                class="w-100 d-flex justify-content-end align-items-center btnblog"
-              >
-                <p>ادامه</p>
-                <i class="fa fa-angle-left"></i>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="blognew d-flex justify-content-center align-items-start flex-column"
-            >
-              <img src="./assets/img/box/box7.jpg" alt="وبلاگ" />
-
-              <h3 class="mt-4">استراتژی‌های تضمینی برد</h3>
-
-              <p class="mt-2">
-                بازی رولت (Roulette) یکی از جذاب‌ترین و هیجان‌انگیزترین بازی‌های
-                یی در سایت‌های شرط بندی مانند لایو بت (CasinoLiveBet) است. این
-                بازی با ترکیب شانس و استراتژی، فرصت خوبی برای بردهای بزرگ فراهم
-                می‌کند. در این مقاله به بررسی استراتژی‌های حرفه‌ای و عملی برد در
-                بازی رولت می‌پردازیم و روش‌هایی که کاربران حرفه‌ای استفاده
-                می‌کنند را همراه با نکات کاربردی برای کسب سود در آنلاین ایرانی
-                بررسی می‌کنیم. چرا بازی رولت در سایت شرطبندی محبوب است؟ محیط
-                زنده و واقعی در بی باگ تنوع بالا (رولت اروپایی، آمریکایی،
-                فرانسوی) ضرایب مشخص و شفاف امکان استفاده از استراتژی برای کنترل
-                ریسک قابل بازی با موبایل، دسکتاپ و اپلیکیشن‌های شرط بندی
-              </p>
-
-              <div
-                class="w-100 d-flex justify-content-end align-items-center btnblog"
-              >
-                <p>ادامه</p>
-                <i class="fa fa-angle-left"></i>
-              </div>
-            </a>
-
-            <a
-              href="#"
-              class="blognew d-flex justify-content-center align-items-start flex-column"
-            >
-              <img src="./assets/img/box/box18.jpg" alt="وبلاگ" />
-
-              <h3 class="mt-4">آموزش کامل بازی بلک جک</h3>
-
-              <p class="mt-2">
-                اگر دنبال یادگیری بازی بلک جک در سایت بی باگ (casinolivebet)
-                هستی و می‌خوای بدونی چطور با کمترین ریسک، بیشترین سود رو ببری،
-                این آموزش جامع مخصوص توئه. بلک جک یا همون ۲۱ یکی از محبوب‌ترین
-                بازی‌های یی دنیاست که با ترکیب شانس و استراتژی، می‌تونه به راحتی
-                تو رو به یک بازیکن حرفه‌ای و سودده تبدیل کنه. بلک جک چیست؟
-              </p>
-
-              <div
-                class="w-100 d-flex justify-content-end align-items-center btnblog"
-              >
-                <p>ادامه</p>
-                <i class="fa fa-angle-left"></i>
-              </div>
-            </a>
-          </section>
-
-          <div
-            id="MYSLIDERSR"
-            class="carousel slide w-100 mt-lg-4"
-            data-bs-ride="carousel"
-          >
-            <ol class="carousel-indicators" id="formyblog">
-              <li
-                style="cursor: default !important"
-                data-target="#MYSLIDERSR"
-                data-slide-to="0"
-                class="active formyblog1"
-              ></li>
-              <li
-                style="cursor: default !important"
-                class="formyblog1"
-                data-target="#MYSLIDERSR"
-                data-slide-to="1"
-              ></li>
-              <li
-                style="cursor: default !important"
-                class="formyblog1"
-                data-target="#MYSLIDERSR"
-                data-slide-to="2"
-              ></li>
-              <li
-                style="cursor: default !important"
-                class="formyblog1"
-                data-target="#MYSLIDERSR"
-                data-slide-to="3"
-              ></li>
-              <li
-                style="cursor: default !important"
-                class="formyblog1"
-                data-target="#MYSLIDERSR"
-                data-slide-to="4"
-              ></li>
-            </ol>
-          </div>
-        </section>
+      <section class="news">
+        <div>
+          <h2 style="margin: 0">هر شنبه، یک ایمیل کوتاه</h2>
+          <p>خلاصه مقاله های هفته و یک باگ واقعی. بدون تبلیغ.</p>
+        </div>
+        <form id="newsForm">
+          <input
+            type="email"
+            id="em"
+            dir="ltr"
+            placeholder="you@example.com"
+          /><button class="btn">عضویت</button>
+        </form>
       </section>
-
-      <!-- END Weblog -->
-
-      <!-- Question -->
-
-      <section
-        class="mx-auto bgfooter1 mt-4 pt-2 mt-lg-0 mb-lg-5 pb-lg-3 w-100"
-      >
-        <section class="conarticle py-lg-5 bgfooter mt-lg-4 mx-auto w-100">
-          <div class="m_title w-100 text-right mt-5">
-            <div
-              class="d-flex justify-content-lg-start align-items-lg-start justify-content-center align-items-start"
+    </main>
+    <footer class="foot">
+      <div class="wrap">
+        <div class="footg">
+          <div>
+            <a class="brand" href="./index.html"
+              ><span class="mark">ب</span><span><b>بی باگ</b></span></a
             >
-              <i class="fa fa-star m-0 p-0 ml-3"></i>
-              <h2 class="m-0 p-0">سوالات متداول <span>بی باگ</span></h2>
+            <p>
+              وبلاگ فارسی برنامه نویسی با تمرکز روی تجربه واقعی و متن قابل فهم.
+            </p>
+          </div>
+          <div>
+            <h4>مسیرها</h4>
+            <div class="ls">
+              <a href="./index.html">صفحه اصلی</a
+              ><a href="./categories.html">وبلاگ و مقالات</a
+              ><a href="./category.html">وب۳</a
+              ><a href="./contactUs.html">ارتباط با ما</a>
             </div>
           </div>
-
-          <div
-            class="d-flex flex-column flex-lg-row justify-content-center align-items-start mt-3 pt-2 pt-lg-0 mt-lg-5 w-100"
-          >
-            <div
-              class="d-flex flex-column justify-content-center align-items-center ml-lg-3 w-50 w-md100"
-            >
-              <section
-                class="d-flex flex-column align-items-center justify-content-center w-100 mt-4 mt-lg-0"
-                onclick="openticket('ticket7' , 'imgtick7' , this)"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-between w-100 boxitem borderselected"
-                >
-                  <div class="d-flex justify-content-center align-items-center">
-                    <img
-                      src="./assets/img/item1.svg"
-                      class="ml-2 pb-2"
-                      style="max-width: 30px !important"
-                      alt="سوال"
-                    />
-                    <h3>چگونه در ثبت&zwnj;نام کنم؟</h3>
-                  </div>
-
-                  <i class="fa fa-angle-up imgtick7 img-icon"></i>
-                </div>
-
-                <div class="w-100 boxitemshow" id="ticket7">
-                  <p>
-                    ثبت&zwnj;نام در بی باگ بسیار ساده و سریع است. کافی است فرم
-                    مربوطه را پر کرده و حساب کاربری خود را فعال کنید.
-                  </p>
-                </div>
-              </section>
-
-              <section
-                class="d-flex flex-column align-items-center justify-content-center w-100"
-                onclick="openticket('ticket72' , 'imgtick72' , this)"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-between w-100 boxitem borderbotm"
-                >
-                  <div class="d-flex justify-content-center align-items-center">
-                    <img
-                      src="./assets/img/item2.svg"
-                      class="ml-2 pb-2"
-                      style="max-width: 30px !important"
-                      alt="سوال"
-                    />
-                    <h3>روش&zwnj;های واریز وجه کدامند؟</h3>
-                  </div>
-
-                  <i class="fa fa-angle-down imgtick72 img-icon"></i>
-                </div>
-
-                <div class="w-100 boxitemshowclose" id="ticket72">
-                  <p>
-                    بی باگ درگاه&zwnj;های بانکی مستقیم، کارت به کارت و
-                    کیف&zwnj;پول&zwnj;های دیجیتال را پشتیبانی می&zwnj;کند. تمامی
-                    تراکنش&zwnj;ها با امنیت بالا انجام می&zwnj;شوند.
-                  </p>
-                </div>
-              </section>
-            </div>
-
-            <div
-              class="d-flex flex-column justify-content-center align-items-center mr-lg-3 w-50 w-md100"
-            >
-              <section
-                class="d-flex flex-column align-items-center justify-content-center w-100"
-                onclick="openticket('ticket723' , 'imgtick723' , this)"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-between w-100 boxitem borderbotm"
-                >
-                  <div class="d-flex justify-content-center align-items-center">
-                    <img
-                      src="./assets/img/item3.svg"
-                      class="ml-2 pb-2"
-                      style="max-width: 30px !important"
-                      alt="سوال"
-                    />
-                    <h3>آیا بازی&zwnj;ها با دیلر زنده هستند؟</h3>
-                  </div>
-
-                  <i class="fa fa-angle-down imgtick723 img-icon"></i>
-                </div>
-
-                <div class="w-100 boxitemshowclose" id="ticket723">
-                  <p>
-                    بله، اکثر بازی&zwnj;های محبوب مثل پوکر، رولت و بلک&zwnj;جک
-                    به صورت زنده با دیلرهای حرفه&zwnj;ای ارائه می&zwnj;شوند.
-                    تجربه&zwnj;ای واقعی و هیجان&zwnj;انگیز را فراهم می&zwnj;کند.
-                  </p>
-                </div>
-              </section>
-
-              <section
-                class="d-flex d-lg-none flex-column align-items-center justify-content-center w-100"
-                onclick="openticket('ticket7234' , 'imgtick7234' , this)"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-between w-100 boxitem borderbotm"
-                >
-                  <div class="d-flex justify-content-center align-items-center">
-                    <img
-                      src="./assets/img/item4.svg"
-                      class="ml-2 pb-2"
-                      style="max-width: 30px !important"
-                      alt="سوال"
-                    />
-                    <h3>آیا بی باگ بونوس ارائه می&zwnj;دهد؟</h3>
-                  </div>
-
-                  <i class="fa fa-angle-down imgtick7234 img-icon"></i>
-                </div>
-
-                <div class="w-100 boxitemshowclose" id="ticket7234">
-                  <p>
-                    بله، بی باگ بونوس&zwnj;های متنوعی از جمله بونوس
-                    خوش&zwnj;آمدگویی و شارژ مجدد دارد که به کاربران جدید و قدیمی
-                    ارائه می&zwnj;شود.
-                  </p>
-                </div>
-              </section>
-
-              <section
-                class="d-none d-lg-flex flex-column align-items-center justify-content-center w-100 mt-4 mt-lg-0"
-                onclick="openticket('ticket712' , 'imgtick712' , this)"
-              >
-                <div
-                  class="d-flex align-items-center justify-content-between w-100 boxitem borderselected"
-                >
-                  <div class="d-flex justify-content-center align-items-center">
-                    <img
-                      src="./assets/img/item4.svg"
-                      class="ml-2 pb-2"
-                      style="max-width: 30px !important"
-                      alt="سوال"
-                    />
-                    <h3>آیا بی باگ بونوس ارائه می&zwnj;دهد؟</h3>
-                  </div>
-
-                  <i class="fa fa-angle-up imgtick712 img-icon"></i>
-                </div>
-
-                <div class="w-100 boxitemshow" id="ticket712">
-                  <p>
-                    بله، بی باگ بونوس&zwnj;های متنوعی از جمله بونوس
-                    خوش&zwnj;آمدگویی و شارژ مجدد دارد که به کاربران جدید و قدیمی
-                    ارائه می&zwnj;شود.
-                  </p>
-                </div>
-              </section>
+          <div>
+            <h4>دسته ها</h4>
+            <div class="ls">
+              <a href="./categories.html">برنامه نویسی</a
+              ><a href="./categories.html">هوش مصنوعی</a
+              ><a href="./categories.html">استایل دهی</a>
             </div>
           </div>
-        </section>
-      </section>
-
-      <!-- END Question -->
-    </body>
-
-    <!-- Margin -->
-    <div class="mt-5 mt-lg-4"></div>
-    <!-- Margin -->
-
-    <footer
-      class="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100 rounded p-5 mt-5"
-    >
-      <div
-        class="d-flex justify-content-lg-start justify-content-center align-items-center w-50 w-sm-100"
-      >
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">دسته بندی ها</h4>
-          <a href="#" class="footer-link"> برنامه‌نویسی </a>
-          <a href="#" class="footer-link"> هوش‌مصنوعی </a>
-          <a href="#" class="footer-link"> ارز‌دیجیتال </a>
-          <a href="#" class="footer-link"> ماشین‌لرنینگ </a>
-          <a href="#" class="footer-link"> استایل‌دهی </a>
+          <div>
+            <h4>ارتباط</h4>
+            <div class="ls">
+              <a href="mailto:condevtp@gmail.com">condevtp@gmail.com</a
+              ><a href="http://cv.condev.ir/" target="_blank" rel="noopener"
+                >رزومه</a
+              >
+            </div>
+          </div>
         </div>
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">ارتباط با ما</h4>
-          <a href="#" class="footer-link"> خدمات ما </a>
-          <a href="#" class="footer-link"> درباره‌ی ما </a>
-          <a href="#" class="footer-link"> همکاری با ما </a>
-          <a href="#" class="footer-link"> تبلیغات </a>
-          <a href="#" class="footer-link"> ایمیل ما </a>
-        </div>
-      </div>
-
-      <div
-        class="d-flex flex-column justify-content-center align-items-center w-50 aboutus mt-5 mt-lg-0 w-sm-100"
-      >
-        <h4 class="fw-bold footer-title mb-3">درباره ی بی باگ</h4>
-        <p class="mt-2">
-          بی‌باگ؛ محلی برای یادگیری اصولی، ساده و لذت‌بخش برنامه‌نویسی و
-          تکنولوژی. اینجا تلاش می‌کنیم با آموزش‌های کاربردی، تجربه‌های واقعی و
-          رفع باگ‌های رایج، مسیر رشد شما را هموار کنیم. هدف ما ساخت جامعه‌ای از
-          برنامه‌نویسان خلاق، مستقل و همیشه در حال یادگیری است. همراه ما بمان تا
-          دنیای کدنویسی را بی‌استرس و بی‌باگ تجربه کنیم.
-        </p>
-
-        <div
-          class="d-flex justify-content-center align-items-center mt-3 mt-lg-0"
-        >
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/telegram.png"
-              data-dark="./assets/img/telegram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/telegram.png"
-              alt="telegram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/instagram.png"
-              data-dark="./assets/img/instagram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/instagram.png"
-              alt="instagram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/gmail.png"
-              data-dark="./assets/img/gmail_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/gmail.png"
-              alt="gmail"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/youtube.png"
-              data-dark="./assets/img/youtube_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/youtube.png"
-              alt="youtube"
-            />
-          </div>
+        <div class="bot">
+          <span>© ۱۴۰۴ بی باگ</span><span>طراحی و توسعه: کان دو</span>
         </div>
       </div>
     </footer>
+    <div class="toast" id="toast"></div>
 
-    <small class="mb-2 mt-3 text-end">
-      تمام حقوق مادی و معنوی این وب سایت متعلق به <span>بی باگ</span> است.
-    </small>
+    <script src="./assets/js/aboutUs.js"></script>
 
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="./assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Custom -->
-    <script src="./assets/js/index.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".carousel").carousel({
-          interval: 6000,
-        });
-      });
-    </script>
+
+
   </body>
 </html>

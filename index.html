@@ -1,1167 +1,887 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>بی‌باگ — مقالات و آموزش‌های عملی برنامه‌نویسی</title>
-    <meta
-      name="title"
-      content="بی‌باگ — مقالات و آموزش‌های عملی برنامه‌نویسی"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>بی باگ — آموزش برنامه نویسی، فرانت اند و وب۳</title>
     <meta
       name="description"
-      content="در بی‌باگ با آموزش‌های کاربردی، رفع باگ‌های رایج و راه‌حل‌های عملی، کدنویسی را ساده و بدون استرس یاد بگیر. مناسب برای مبتدی تا حرفه‌ای."
+      content="بی باگ وبلاگی است درباره کد نوشتن، خراب کردن و درست کردنش. جاوااسکریپت، فرانت اند، وب۳، پایگاه داده و ابزارهای هوش مصنوعی. هر مقاله با مثال قابل اجرا."
     />
-    <meta
-      name="keywords"
-      content="برنامه‌نویسی, آموزش برنامه‌نویسی, رفع باگ, وب‌دیولپمنت, کدنویسی, JavaScript, Python"
-    />
-    <meta name="author" content="بی‌باگ" />
-    <meta name="robots" content="index, follow" />
-
+    <meta name="author" content="Con Dev" />
     <meta name="language" content="fa-IR" />
-
+    <meta name="theme-color" content="#B45309" />
     <meta property="og:locale" content="fa_IR" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="بی باگ" />
     <meta
       property="og:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
+      content="بی باگ — آموزش برنامه نویسی، فرانت اند و وب۳"
     />
     <meta
       property="og:description"
-      content="یادگیری ساده و بی‌استرس برنامه‌نویسی همراه با رفع باگ‌های واقعی."
+      content="کد نوشتن، خراب کردن، درست کردن. مقاله های عملی فرانت اند و وب۳ با مثال قابل اجرا."
     />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="بی‌باگ — آموزش‌های برنامه‌نویسی بدون استرس"
-    />
-    <meta
-      name="twitter:description"
-      content="مقالات و آموزش‌های کاربردی برنامه‌نویسی برای رشد سریع و بدون باگ."
-    />
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "بی‌باگ",
-        "description": "آموزش‌های کاربردی برنامه‌نویسی و راهکارهای رفع باگ",
-        "logo": "",
-        "sameAs": []
-      }
-    </script>
-
-    <meta http-equiv="cleartype" content="on" />
-
-    <!-- Site Icon -->
     <link rel="icon" href="./assets/img/logo.jpg" />
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="./assets/css/bootstrap/bootstrap.min.css" />
-    <!-- Fontawsome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300..800&family=Lalezar&family=Kalam:wght@400;700&family=Source+Code+Pro:wght@400;600&display=swap"
       rel="stylesheet"
-      href="./assets/fonts/fontawesome-free-5.15.4-web/css/all.min.css"
     />
-    <!-- Custom Css -->
     <link rel="stylesheet" href="./assets/css/index.css" />
   </head>
-  <body
-    data-theme="light"
-    id="body"
-    class="d-flex justify-content-center align-items-center px-4 pt-3 flex-column"
-  >
-    <div id="overlay" onclick="closeMenu()"></div>
+  <body>
+    <a class="skip" href="#main">پرش به محتوای اصلی</a>
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-bug" viewBox="0 0 24 24">
+          <path d="M9 5.5a3 3 0 0 1 6 0" />
+          <path d="M6 12a6 6 0 0 1 12 0v2.5a6 6 0 0 1-12 0z" />
+          <path
+            d="M3 11h3m12 0h3M4.4 6.5 7 8.6m12.6-2.1L17 8.6M4.4 18.5 7 16.4m12.6 2.1L17 16.4"
+          />
+        </symbol>
+        <symbol id="i-home" viewBox="0 0 24 24">
+          <path
+            d="M3 10.6 12 3l9 7.6V20a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20z"
+          />
+          <path d="M9.5 21.5V14h5v7.5" />
+        </symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24">
+          <path d="m12 2.5 9 4.7-9 4.7-9-4.7z" />
+          <path d="m3 12.2 9 4.7 9-4.7" />
+          <path d="m3 17 9 4.7 9-4.7" />
+        </symbol>
+        <symbol id="i-box" viewBox="0 0 24 24">
+          <path d="m12 2.5 8.5 4.6v9.8L12 21.5 3.5 16.9V7.1z" />
+          <path d="m3.5 7.1 8.5 4.7 8.5-4.7M12 21.5v-9.7" />
+        </symbol>
+        <symbol id="i-pen" viewBox="0 0 24 24">
+          <path d="M12.5 20.5H21" />
+          <path d="M16.8 3.7a2.1 2.1 0 0 1 3 3L7.8 18.7l-4.3 1.1 1.1-4.3z" />
+        </symbol>
+        <symbol id="i-user" viewBox="0 0 24 24">
+          <circle cx="12" cy="8" r="3.75" />
+          <path d="M4.5 20.5a7.5 7.5 0 0 1 15 0" />
+        </symbol>
+        <symbol id="i-send" viewBox="0 0 24 24">
+          <path d="M21.5 2.5 2.5 9.8l7.4 2.3 2.3 7.4z" />
+          <path d="M21.5 2.5 9.9 12.1" />
+        </symbol>
+        <symbol id="i-search" viewBox="0 0 24 24">
+          <circle cx="10.8" cy="10.8" r="7.3" />
+          <path d="m16.2 16.2 4.3 4.3" />
+        </symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24">
+          <path d="M3.5 7h17m-17 5h17m-17 5h11" />
+        </symbol>
+        <symbol id="i-x" viewBox="0 0 24 24">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </symbol>
+        <symbol id="i-x-c" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="m9 9 6 6m0-6-6 6" />
+        </symbol>
+        <symbol id="i-chev-l" viewBox="0 0 24 24">
+          <path d="m14.5 5.5-7 6.5 7 6.5" />
+        </symbol>
+        <symbol id="i-chev-r" viewBox="0 0 24 24">
+          <path d="m9.5 5.5 7 6.5-7 6.5" />
+        </symbol>
+        <symbol id="i-chev-d" viewBox="0 0 24 24">
+          <path d="m5.5 9 6.5 7 6.5-7" />
+        </symbol>
+        <symbol id="i-arrow-l" viewBox="0 0 24 24">
+          <path d="M20.5 12H3.5" />
+          <path d="m10 4.5-6.5 7.5 6.5 7.5" />
+        </symbol>
+        <symbol id="i-clock" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 6.8V12l3.4 2.2" />
+        </symbol>
+        <symbol id="i-eye" viewBox="0 0 24 24">
+          <path
+            d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"
+          />
+          <circle cx="12" cy="12" r="2.8" />
+        </symbol>
+        <symbol id="i-cal" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="16.5" rx="2.5" />
+          <path d="M8 2.5V6m8-3.5V6M3 10h18" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24">
+          <path d="m9 17.5-5.5-5.5L9 6.5m6 0 5.5 5.5-5.5 5.5" />
+        </symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24">
+          <rect x="8.5" y="8.5" width="12" height="12" rx="2.5" />
+          <path
+            d="M5.5 15.5H5a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v.5"
+          />
+        </symbol>
+        <symbol id="i-check" viewBox="0 0 24 24">
+          <path d="m4.5 12.5 5 5 10-11" />
+        </symbol>
+        <symbol id="i-alert" viewBox="0 0 24 24">
+          <path d="M12 3.5 21.5 20H2.5z" />
+          <path d="M12 9.5v5m0 3v.4" />
+        </symbol>
+        <symbol id="i-info" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 11v6m0-9.5V8" />
+        </symbol>
+        <symbol id="i-db" viewBox="0 0 24 24">
+          <ellipse cx="12" cy="6" rx="8" ry="3.2" />
+          <path d="M4 6v12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V6" />
+          <path d="M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2" />
+        </symbol>
+        <symbol id="i-brain" viewBox="0 0 24 24">
+          <path
+            d="M12 5.5A3 3 0 0 0 6.2 4.4 3 3 0 0 0 4.6 10 3 3 0 0 0 6 15.6a3 3 0 0 0 6 .9zm0 0a3 3 0 0 1 5.8-1.1A3 3 0 0 1 19.4 10 3 3 0 0 1 18 15.6a3 3 0 0 1-6 .9z"
+          />
+        </symbol>
+        <symbol id="i-palette" viewBox="0 0 24 24">
+          <path
+            d="M12 21.5a9.5 9.5 0 1 1 9.5-9.5c0 2.5-2 3.5-3.8 3.5H15a2.5 2.5 0 0 0-1.8 4.2 1.7 1.7 0 0 1-1.2 1.8z"
+          />
+          <circle cx="8" cy="9.5" r="1.1" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="7.2" r="1.1" fill="currentColor" stroke="none" />
+          <circle cx="16" cy="9.5" r="1.1" fill="currentColor" stroke="none" />
+        </symbol>
+        <symbol id="i-spark" viewBox="0 0 24 24">
+          <path
+            d="m12 3 2.1 5.6L20 10.7l-5.9 2.1L12 18.4l-2.1-5.6L4 10.7l5.9-2.1z"
+          />
+        </symbol>
+        <symbol id="i-git" viewBox="0 0 24 24">
+          <path
+            d="M9 19c-4 1.4-4-2.5-6-3m12 5v-3.9c0-1.1.1-1.5-.5-2.1 2.8-.3 4.5-1.6 4.5-4.6 0-1.2-.4-2.2-1.1-3 .3-1 .3-2-.1-2.9 0 0-1 0-2.3 1.2a8.6 8.6 0 0 0-4.5 0C9.7 4.5 8.7 4.5 8.7 4.5c-.4.9-.4 1.9-.1 2.9-.7.8-1.1 1.8-1.1 3 0 3 1.7 4.3 4.5 4.6-.6.6-.6 1.2-.5 2.1V21"
+          />
+        </symbol>
+        <symbol id="i-ig" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+        </symbol>
+        <symbol id="i-in" viewBox="0 0 24 24">
+          <path
+            d="M15.5 8.5A5.5 5.5 0 0 1 21 14v6.5h-4V14a1.5 1.5 0 0 0-3 0v6.5h-4V8.5z"
+          />
+          <rect x="3" y="9" width="4" height="11.5" />
+          <circle cx="5" cy="4.5" r="2" />
+        </symbol>
+        <symbol id="i-yt" viewBox="0 0 24 24">
+          <rect x="2.5" y="5" width="19" height="14" rx="4" />
+          <path d="m10.5 9 5 3-5 3z" />
+        </symbol>
+        <symbol id="i-play" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path d="m10 8.5 6 3.5-6 3.5z" />
+        </symbol>
+        <symbol id="i-id" viewBox="0 0 24 24">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="2.5" />
+          <circle cx="8.5" cy="10.5" r="2" />
+          <path d="M13.5 9.5h5m-5 4h5M5 16c.8-1.3 2-2 3.5-2s2.7.7 3.5 2" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+          <rect x="2.5" y="5" width="19" height="14" rx="2.5" />
+          <path d="m3 7 9 6 9-6" />
+        </symbol>
+        <symbol id="i-list" viewBox="0 0 24 24">
+          <path d="M4 6.5h16M4 12h11M4 17.5h13" />
+        </symbol>
+        <symbol id="i-link" viewBox="0 0 24 24">
+          <path d="M14.5 3.5H21v6.5M21 3.5 12 12.5" />
+          <path
+            d="M19 14v5.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5.5"
+          />
+        </symbol>
+      </defs>
+    </svg>
 
-    <header class="d-flex flex-column w-100 p-3 rounded">
-      <div
-        class="w-100 d-flex justify-content-between align-items-center flex-row-reverse flex-sm-row"
-      >
-        <div
-          class="d-flex justify-content-sm-center justify-content-between align-items-center flex-row-reverse flex-sm-row w-sm-100"
-        >
-          <a
-            href="#"
-            class="d-flex justify-content-between align-items-center logo"
+    <div class="scrim" data-close-nav aria-hidden="true"></div>
+
+    <header class="mast" id="mast">
+      <div class="wrap mast__in">
+        <a class="brand" href="./index.html" aria-label="بی باگ، صفحه اصلی">
+          <span class="brand__mark" aria-hidden="true"
+            ><svg class="ic"><use href="#i-bug"></use></svg
+          ></span>
+          <span class="brand__txt"
+            ><b>بی باگ</b><small>کد بنویس، از باگ نترس</small></span
           >
-            <img
-              src="./assets/img/logo.jpg"
-              alt="BiBag"
-              class="img-fluid rounded shadow-sm"
-            />
-            <small class="mx-2 d-none d-sm-flex">بی باگ</small>
-          </a>
+        </a>
 
+        <nav class="nav" id="nav" aria-label="منوی اصلی">
+          <div class="nav__head">
+            <span>منو</span>
+            <button
+              class="ibtn"
+              type="button"
+              data-close-nav
+              aria-label="بستن منو"
+            >
+              <svg class="ic"><use href="#i-x"></use></svg>
+            </button>
+          </div>
+          <form class="search nav__search" role="search">
+            <svg class="ic" aria-hidden="true">
+              <use href="#i-search"></use>
+            </svg>
+            <input
+              type="search"
+              data-search
+              aria-label="جستجو در مقالات"
+              placeholder="جستجو در مقالات"
+            />
+          </form>
+          <a class="nav__l" href="./index.html" aria-current="page"
+            ><svg class="ic"><use href="#i-home"></use></svg> خانه</a
+          >
+          <a class="nav__l" href="./categories.html"
+            ><svg class="ic"><use href="#i-layers"></use></svg> وبلاگ و
+            مقالات</a
+          >
+          <a class="nav__l" href="./category.html"
+            ><svg class="ic"><use href="#i-box"></use></svg> وب۳</a
+          >
+          <button class="nav__l" type="button" data-writing>
+            <svg class="ic"><use href="#i-pen"></use></svg> ثبت مقاله
+          </button>
+          <a class="nav__l" href="./aboutUs.html"
+            ><svg class="ic"><use href="#i-user"></use></svg> درباره ما</a
+          >
+          <a class="nav__l" href="./contactUs.html"
+            ><svg class="ic"><use href="#i-send"></use></svg> ارتباط با ما</a
+          >
+          <div class="nav__foot">
+            <a
+              class="social-mini"
+              href="https://github.com/condev-dev"
+              target="_blank"
+              rel="noopener me"
+              aria-label="گیت هاب"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-git"></use></svg></span
+            ></a>
+            <a
+              href="https://instagram.com/con.dev"
+              target="_blank"
+              rel="noopener me"
+              aria-label="اینستاگرام"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-ig"></use></svg></span
+            ></a>
+            <a href="mailto:condevtp@gmail.com" aria-label="ایمیل"
+              ><span class="ibtn"
+                ><svg class="ic"><use href="#i-mail"></use></svg></span
+            ></a>
+          </div>
+        </nav>
+
+        <form class="search mast__search" role="search">
+          <svg class="ic" aria-hidden="true"><use href="#i-search"></use></svg>
           <input
             type="search"
-            class="form-control mr-3 mr-sm-4"
-            placeholder="جستجو در بی باگ ..."
+            data-search
+            aria-label="جستجو در مقالات"
+            placeholder="جستجو در ۱۴۰ مقاله"
           />
-        </div>
-        <div
-          class="d-flex justify-content-center align-items-center"
-          id="ConTogglePC"
-        >
-          <button class="login-btn btn rounded d-none d-sm-block">
-            ورود / ثبت‌نام
-          </button>
-        </div>
+        </form>
+
         <button
-          class="menu-btn d-flex justify-content-center align-items-center shadow-lg d-sm-none"
-          onclick="Toggle_Menu_Mobile()"
+          class="ibtn mast__burger"
+          id="burger"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          aria-label="باز کردن منو"
         >
-          <i class="fa fa-bars m-0 p-0"></i>
+          <svg class="ic"><use href="#i-menu"></use></svg>
         </button>
-      </div>
-
-      <div
-        class="d-flex flex-column flex-sm-row justify-content-start align-items-start align-items-md-center header-menu mt-3 pt-1 position-relative menu-mobile"
-        id="menu_mobile"
-      >
-        <div
-          class="d-flex justify-content-between align-items-center mb-3 mt-1 w-100 d-sm-none"
-        >
-          <button
-            class="menu-btn d-flex justify-content-center align-items-center d-sm-none"
-            style="width: fit-content !important"
-            onclick="Toggle_Menu_Mobile()"
-          >
-            <i
-              style="font-size: 16px !important"
-              class="fa fa-times m-0 p-0"
-            ></i>
-          </button>
-
-          <button class="login-btn btn rounded">ورود / ثبت‌نام</button>
-        </div>
-
-        <a href="./index.html" class="mr-2">
-          <i class="fa fa-home"></i>
-          خانه
-        </a>
-        <a href="./categories.html">
-          <i class="fas fa-blog"></i>
-          وبلاگ و مقالات
-        </a>
-        <a href="#">
-          <i class="fa fa-plus"></i>
-          ثبت مقاله
-        </a>
-        <a href="./aboutUs.html">
-          <i class="fa fa-user"></i>
-          درباره ی ما
-        </a>
-        <a href="./contactUs.html">
-          <i class="fa fa-phone"></i>
-          ارتباط با ما
-        </a>
-
-        <div
-          class="d-flex justify-content-between align-items-center w-100 mt-4 px-2 d-sm-none"
-          id="ConToggleMobile"
-        >
-          <small class="theme-text">تغییر تم:</small>
-        </div>
       </div>
     </header>
 
-    <body class="w-100">
-      <!-- Intro -->
+    <main id="main">
+      <div class="wrap">
+        <section class="hero">
+          <div>
+            <span class="eyebrow"
+              ><svg class="ic"><use href="#i-bug"></use></svg> شماره ۱۲ · مرداد
+              ۱۴۰۴</span
+            >
+            <h1>کد بنویس، خراب کن، <em>درستش کن</em>.</h1>
+            <p class="lead">
+              اینجا آموزش از تئوری شروع نمی شود. هر مقاله با یک باگ واقعی باز می
+              شود، به کدی می رسد که می توانی کپی کنی و اجرا کنی، و با یک درس
+              ساده تمام می شود.
+            </p>
 
-      <div
-        class="d-flex justify-content-between align-items-center align-items-lg-start con-intro flex-column flex-lg-row-reverse mt-sm-5 mt-4 pt-1 pt-lg-0"
-      >
-        <img src="./assets/img/intro.png" alt="BiBag" class="img-fluid" />
+            <form class="hero__form" role="search">
+              <div class="search search--hero">
+                <svg class="ic" aria-hidden="true">
+                  <use href="#i-search"></use>
+                </svg>
+                <input
+                  type="search"
+                  data-search
+                  aria-label="امروز چه چیزی یاد بگیریم"
+                  placeholder="مثلا: کیف پول، ایندکس، async"
+                />
+              </div>
+              <button class="btn btn--lg" type="submit">بگرد</button>
+            </form>
 
-        <div
-          class="d-flex justify-content-start align-items-start flex-column mt-4 pt-2 mt-sm-5 pt-sm-5 w-100 pl-sm-5"
-        >
-          <h1 class="mt-sm-5 pt-sm-3">
-            تازه‌ترین <span class="gradienttext">آموزش‌ها</span>
-            در بی‌باگ
-          </h1>
+            <div class="chips">
+              <span class="eyebrow">پیشنهاد</span>
+              <button class="chip" type="button" data-term="وب۳">وب۳</button>
+              <button class="chip" type="button" data-term="جاوااسکریپت">
+                جاوااسکریپت
+              </button>
+              <button class="chip" type="button" data-term="راست به چپ">
+                راست به چپ
+              </button>
+              <button class="chip" type="button" data-term="ایندکس">
+                ایندکس دیتابیس
+              </button>
+            </div>
+            <p
+              class="meta"
+              id="count"
+              aria-live="polite"
+              style="margin-block-start: var(--s4)"
+            ></p>
+          </div>
 
-          <h3 class="mt-sm-5">چی برات جذابه امروز؟</h3>
+          <div class="hero__art">
+            <div class="ph" data-mark="بی باگ">
+              <img
+                src="./assets/img/intro.png"
+                alt="توسعه دهنده در حال پیدا کردن یک باگ"
+                loading="eager"
+              />
+            </div>
+            <p class="badge">
+              <b class="nums">۱۴۰</b> مقاله فارسی، همه با مثال قابل اجرا و مخزن
+              گیت هاب.
+            </p>
+          </div>
+        </section>
 
-          <input
-            type="text"
-            class="form-control mt-4 shadow-sm d-flex"
-            placeholder="چی می خوای امروز یاد بگیری ؟"
-          />
+        <section class="sec--tight reveal" aria-labelledby="feat-t">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">انتخاب سرمقاله</span>
+              <h2 id="feat-t">مقاله <em>این هفته</em></h2>
+            </div>
+            <a class="more" href="./categories.html"
+              >همه شماره ها <svg class="ic"><use href="#i-arrow-l"></use></svg
+            ></a>
+          </div>
+
+          <article class="feat" data-post="وب۳ کیف پول ethers متامسک فرانت اند">
+            <a
+              class="ph"
+              href="./Blog.html"
+              data-mark="کیف پول"
+              aria-label="خواندن مقاله کیف پول را وصل کن"
+            >
+              <img
+                src="./assets/img/box/box5.jpg"
+                alt="رابط وب متصل به کیف پول رمزارز"
+                loading="lazy"
+              />
+              <span class="ph__tag">۱۲ دقیقه خواندن</span>
+            </a>
+            <div>
+              <span class="post__cat">وب۳ · فرانت اند</span>
+              <h3>
+                <a href="./Blog.html"
+                  >کیف پول را وصل کن: وب۳ برای برنامه نویس فرانت اند</a
+                >
+              </h3>
+              <p>
+                بدون هایپ و بدون قیمت ارز. سه لایه ای که هر اپلیکیشن غیرمتمرکز
+                روی آن سوار است را باز می کنیم، با
+                <code class="ltr">ethers.js</code> کیف پول را وصل می کنیم، از
+                قرارداد می خوانیم و تراکنش می فرستیم. آخرش هم همه خطاهایی که
+                کاربر واقعی می سازد را مدیریت می کنیم.
+              </p>
+              <div class="meta">
+                <span
+                  ><svg class="ic"><use href="#i-user"></use></svg>
+                  <a href="./aboutUs.html">کان دو</a></span
+                >
+                <span
+                  ><svg class="ic"><use href="#i-cal"></use></svg> ۱۲ مرداد
+                  ۱۴۰۴</span
+                >
+                <span
+                  ><svg class="ic"><use href="#i-eye"></use></svg> ۲٫۴ هزار
+                  بازدید</span
+                >
+                <span
+                  ><svg class="ic"><use href="#i-code"></use></svg> ۵ قطعه
+                  کد</span
+                >
+              </div>
+              <div class="chips" style="margin-block-start: var(--s5)">
+                <a class="chip chip--rust" href="./category.html">وب۳</a>
+                <a class="chip chip--olive" href="./categories.html"
+                  >جاوااسکریپت</a
+                >
+                <a class="chip chip--plum" href="./category.html">امنیت</a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="sec reveal" aria-labelledby="cat-t" data-hide-on-search>
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">۸ مسیر یادگیری</span>
+              <h2 id="cat-t">دسته بندی های <em>بی باگ</em></h2>
+            </div>
+            <div class="rail-nav">
+              <button
+                class="ibtn"
+                type="button"
+                data-rail-prev
+                aria-label="قبلی"
+              >
+                <svg class="ic"><use href="#i-chev-r"></use></svg>
+              </button>
+              <button
+                class="ibtn"
+                type="button"
+                data-rail-next
+                aria-label="بعدی"
+              >
+                <svg class="ic"><use href="#i-chev-l"></use></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="rail" data-rail>
+            <a class="cat" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-code"></use></svg
+              ></span>
+              <h5>برنامه نویسی</h5>
+              <small class="nums">۴۲ مقاله</small></a
+            >
+            <a class="cat cat--plum" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-brain"></use></svg
+              ></span>
+              <h5>هوش مصنوعی</h5>
+              <small class="nums">۲۳ مقاله</small></a
+            >
+            <a class="cat" href="./category.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-box"></use></svg
+              ></span>
+              <h5>وب۳ و بلاک چین</h5>
+              <small class="nums">۱۹ مقاله</small></a
+            >
+            <a class="cat cat--olive" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-palette"></use></svg
+              ></span>
+              <h5>استایل دهی</h5>
+              <small class="nums">۱۷ مقاله</small></a
+            >
+            <a class="cat" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-db"></use></svg
+              ></span>
+              <h5>پایگاه داده</h5>
+              <small class="nums">۱۴ مقاله</small></a
+            >
+            <a class="cat cat--olive" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-list"></use></svg
+              ></span>
+              <h5>پایتون</h5>
+              <small class="nums">۱۲ مقاله</small></a
+            >
+            <a class="cat cat--plum" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-spark"></use></svg
+              ></span>
+              <h5>ماشین لرنینگ</h5>
+              <small class="nums">۹ مقاله</small></a
+            >
+            <a class="cat" href="./categories.html"
+              ><span class="cat__ic"
+                ><svg class="ic"><use href="#i-pen"></use></svg
+              ></span>
+              <h5>دیزاین و تجربه کاربری</h5>
+              <small class="nums">۸ مقاله</small></a
+            >
+          </div>
+        </section>
+
+        <section class="sec reveal" aria-labelledby="new-t">
+          <div class="sec-head">
+            <div>
+              <span class="eyebrow">به روز رسانی هر شنبه</span>
+              <h2 id="new-t">تازه ترین <em>مقالات</em></h2>
+            </div>
+            <a class="more" href="./categories.html"
+              >آرشیو کامل <svg class="ic"><use href="#i-arrow-l"></use></svg
+            ></a>
+          </div>
+
+          <div class="latest">
+            <article
+              class="post post--lead"
+              data-post="async await جاوااسکریپت حلقه promise باگ"
+            >
+              <a class="ph" href="./Blog.html" data-mark="async / await">
+                <img
+                  src="./assets/img/box/box6.jpg"
+                  alt="کد جاوااسکریپت آسنکرون"
+                  loading="lazy"
+                />
+              </a>
+              <span class="post__cat">جاوااسکریپت</span>
+              <h4>
+                <a href="./Blog.html"
+                  >پنج باگ رایج <code class="ltr">async/await</code> که هنوز هم
+                  زمین می زند</a
+                >
+              </h4>
+              <p>
+                حلقه ای که منتظر نمی ماند، خطایی که بی صدا بلعیده می شود و
+                <code class="ltr">Promise.all</code> که با یک شکست همه درخواست
+                ها را خراب می کند. هر باگ با کد شکسته، دلیل دقیق و نسخه درستش.
+              </p>
+              <div class="meta">
+                <span
+                  ><svg class="ic"><use href="#i-clock"></use></svg> ۸
+                  دقیقه</span
+                >
+                <span
+                  ><svg class="ic"><use href="#i-cal"></use></svg> ۱۰
+                  مرداد</span
+                >
+                <span
+                  ><svg class="ic"><use href="#i-eye"></use></svg> ۱٫۹
+                  هزار</span
+                >
+              </div>
+            </article>
+
+            <div class="rows">
+              <article
+                class="row"
+                data-post="راست به چپ RTL CSS logical properties اعداد فارسی استایل"
+              >
+                <span class="row__n nums" aria-hidden="true">۲</span>
+                <a class="ph" href="./Blog.html" data-mark="RTL"
+                  ><img src="./assets/img/box/box7.jpg" alt="" loading="lazy"
+                /></a>
+                <div>
+                  <h4>
+                    <a href="./Blog.html"
+                      >راست به چپ درست: چیزهایی که تقریبا همه اشتباه می کنند</a
+                    >
+                  </h4>
+                  <div class="meta">
+                    <span>استایل دهی</span
+                    ><span
+                      ><svg class="ic"><use href="#i-clock"></use></svg> ۷
+                      دقیقه</span
+                    ><span>۸ مرداد</span>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="row"
+                data-post="سالیدیتی قرارداد هوشمند hardhat تست دیپلوی وب۳"
+              >
+                <span class="row__n nums" aria-hidden="true">۳</span>
+                <a class="ph" href="./Blog.html" data-mark="Hardhat"
+                  ><img src="./assets/img/box/box8.jpg" alt="" loading="lazy"
+                /></a>
+                <div>
+                  <h4>
+                    <a href="./Blog.html"
+                      >اولین قرارداد هوشمندت: از سالیدیتی تا تست با Hardhat</a
+                    >
+                  </h4>
+                  <div class="meta">
+                    <span>وب۳</span
+                    ><span
+                      ><svg class="ic"><use href="#i-clock"></use></svg> ۱۴
+                      دقیقه</span
+                    ><span>۵ مرداد</span>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="row"
+                data-post="پایگاه داده ایندکس explain کوئری کند postgres"
+              >
+                <span class="row__n nums" aria-hidden="true">۴</span>
+                <a class="ph" href="./Blog.html" data-mark="EXPLAIN"
+                  ><img src="./assets/img/box/box9.jpg" alt="" loading="lazy"
+                /></a>
+                <div>
+                  <h4>
+                    <a href="./Blog.html"
+                      >دیتابیس کند است یا کوئری تو؟ راهنمای خواندن EXPLAIN</a
+                    >
+                  </h4>
+                  <div class="meta">
+                    <span>پایگاه داده</span
+                    ><span
+                      ><svg class="ic"><use href="#i-clock"></use></svg> ۱۱
+                      دقیقه</span
+                    ><span>۲ مرداد</span>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="row"
+                data-post="گیت git reflog rebase بازیابی کامیت ابزار"
+              >
+                <span class="row__n nums" aria-hidden="true">۵</span>
+                <a class="ph" href="./Blog.html" data-mark="git"
+                  ><img src="./assets/img/box/box10.jpg" alt="" loading="lazy"
+                /></a>
+                <div>
+                  <h4>
+                    <a href="./Blog.html"
+                      >گیت برای وقتی که خراب شد: reflog و راه برگشت</a
+                    >
+                  </h4>
+                  <div class="meta">
+                    <span>ابزار</span
+                    ><span
+                      ><svg class="ic"><use href="#i-clock"></use></svg> ۹
+                      دقیقه</span
+                    ><span>۲۹ تیر</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <div class="empty" id="empty">
+          <span class="empty__ic" aria-hidden="true"
+            ><svg class="ic"><use href="#i-search"></use></svg
+          ></span>
+          <h3>چیزی پیدا نشد</h3>
+          <p>
+            هیچ مقاله ای با این عبارت جور نشد. شاید املا را عوض کنی، یا بگویی
+            درباره اش بنویسم.
+          </p>
           <div
-            class="justify-content-end align-items-end w-100 mt-sm-4 mt-3 d-flex"
+            class="chips"
+            style="justify-content: center; margin-block-start: var(--s5)"
           >
-            <button class="btn rounded shadow-sm">بزن بریم!</button>
+            <button class="btn btn--ghost btn--sm" type="button" data-clear>
+              پاک کردن جستجو
+            </button>
+            <a class="btn btn--sm" href="./contactUs.html">پیشنهاد موضوع</a>
           </div>
         </div>
+
+        <section
+          class="sec reveal"
+          aria-labelledby="paths-t"
+          data-hide-on-search
+        >
+          <h2 id="paths-t" class="sr">مسیرهای پیشنهادی</h2>
+          <div class="tiles">
+            <a class="tile" href="./categories.html">
+              <div>
+                <h4>از صفر شروع کرده ای؟</h4>
+                <p>
+                  هفت مقاله پایه، به همان ترتیبی که باید بخوانی. از متغیر و حلقه
+                  تا اولین درخواست شبکه و اولین دیپلوی.
+                </p>
+              </div>
+              <span class="tile__go"
+                >شروع مسیر <svg class="ic"><use href="#i-arrow-l"></use></svg
+              ></span>
+            </a>
+            <a
+              class="tile tile--olive"
+              href="https://github.com/condev-dev"
+              target="_blank"
+              rel="noopener"
+            >
+              <div>
+                <h4>کد هر مقاله</h4>
+                <p>هر مثال یک مخزن جدا دارد. کلون کن و اجرا کن.</p>
+              </div>
+              <span class="tile__go"
+                >گیت هاب <svg class="ic"><use href="#i-link"></use></svg
+              ></span>
+            </a>
+            <a class="tile tile--plum" href="./contactUs.html">
+              <div>
+                <h4>موضوع پیشنهاد بده</h4>
+                <p>روی چه چیزی گیر کرده ای؟ بنویس تا مقاله بعدی همان باشد.</p>
+              </div>
+              <span class="tile__go"
+                >بفرست <svg class="ic"><use href="#i-send"></use></svg
+              ></span>
+            </a>
+          </div>
+        </section>
+
+        <section class="sec news reveal" aria-labelledby="news-t">
+          <div>
+            <h2 id="news-t">هر شنبه، یک ایمیل کوتاه</h2>
+            <p>
+              خلاصه مقاله های هفته و یک باگ که خودم در آن گیر کردم. بدون تبلیغ،
+              هر وقت خواستی لغو کن.
+            </p>
+          </div>
+          <form
+            data-validate
+            data-ok="از این شنبه ایمیل ها برایت می آید. اگر نرسید، پوشه اسپم را نگاه کن."
+            data-ok-title="عضویتت ثبت شد"
+          >
+            <div class="field" style="flex: 1">
+              <label class="sr" for="nl-home">ایمیل</label>
+              <input
+                id="nl-home"
+                type="email"
+                dir="ltr"
+                placeholder="you@example.com"
+                data-req
+                data-msg="ایمیلت را بنویس تا بفرستم."
+              />
+            </div>
+            <button class="btn" type="submit">عضویت</button>
+          </form>
+        </section>
       </div>
-      <!-- END Intro -->
+    </main>
 
-      <!-- Category -->
-      <div class="w-100 d-flex flex-column category mt-5 pt-2 pt-lg-0">
-        <div class="m_title w-100 text-right">
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fa fa-bug m-0 p-0 ml-3"></i>
-            <h2 class="m-0 p-0">دسته بندی های <span>بی باگ</span></h2>
+    <footer class="foot">
+      <div class="wrap">
+        <div class="foot__grid">
+          <div>
+            <a class="brand" href="./index.html">
+              <span class="brand__mark" aria-hidden="true"
+                ><svg class="ic"><use href="#i-bug"></use></svg
+              ></span>
+              <span class="brand__txt"
+                ><b>بی باگ</b><small>کد بنویس، از باگ نترس</small></span
+              >
+            </a>
+            <p>
+              وبلاگ فارسی برنامه نویسی. هر مقاله از یک باگ واقعی شروع می شود و
+              با کدی که کار می کند تمام می شود.
+            </p>
+            <div class="social">
+              <a
+                href="https://github.com/condev-dev"
+                target="_blank"
+                rel="noopener me"
+                aria-label="گیت هاب"
+                ><svg class="ic"><use href="#i-git"></use></svg
+              ></a>
+              <a
+                href="https://instagram.com/con.dev"
+                target="_blank"
+                rel="noopener me"
+                aria-label="اینستاگرام"
+                ><svg class="ic"><use href="#i-ig"></use></svg
+              ></a>
+              <a
+                href="https://linkedin.com/in/con-dev-5b43a538b"
+                target="_blank"
+                rel="noopener me"
+                aria-label="لینکدین"
+                ><svg class="ic"><use href="#i-in"></use></svg
+              ></a>
+              <a
+                href="https://youtube.com/@condev-tp"
+                target="_blank"
+                rel="noopener me"
+                aria-label="یوتیوب"
+                ><svg class="ic"><use href="#i-yt"></use></svg
+              ></a>
+              <a
+                href="https://aparat.com/con.dev"
+                target="_blank"
+                rel="noopener me"
+                aria-label="آپارات"
+                ><svg class="ic"><use href="#i-play"></use></svg
+              ></a>
+              <a href="mailto:condevtp@gmail.com" aria-label="ایمیل"
+                ><svg class="ic"><use href="#i-mail"></use></svg
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4>مسیرها</h4>
+            <div class="foot__ls">
+              <a href="./index.html">صفحه اصلی</a>
+              <a href="./categories.html">وبلاگ و مقالات</a>
+              <a href="./category.html">وب۳ و بلاک چین</a>
+              <a href="./aboutUs.html">درباره ما</a>
+              <a href="./contactUs.html">ارتباط با ما</a>
+            </div>
+          </div>
+          <div>
+            <h4>دسته های پرطرفدار</h4>
+            <div class="foot__ls">
+              <a href="./categories.html">برنامه نویسی</a>
+              <a href="./categories.html">هوش مصنوعی</a>
+              <a href="./category.html">وب۳</a>
+              <a href="./categories.html">استایل دهی</a>
+            </div>
+          </div>
+          <div>
+            <h4>دم دست</h4>
+            <div class="foot__ls">
+              <a href="http://cv.condev.ir/" target="_blank" rel="noopener"
+                >رزومه و نمونه کار</a
+              >
+              <a
+                href="https://github.com/condev-dev"
+                target="_blank"
+                rel="noopener"
+                >مخزن کدها</a
+              >
+              <a href="mailto:condevtp@gmail.com">condevtp@gmail.com</a>
+              <a href="./404Page.html">صفحه خطا</a>
+            </div>
           </div>
         </div>
-
-        <div
-          class="d-flex justify-content-between align-items-center con-category mt-lg-5 mt-4 pt-1"
-        >
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
+        <div class="foot__bot">
+          <span>© ۱۴۰۴ بی باگ · محتوا با ذکر منبع آزاد است.</span>
+          <span
+            >طراحی و توسعه:
+            <a href="http://cv.condev.ir/" target="_blank" rel="noopener"
+              ><b>کان دو</b></a
+            ></span
           >
-            <img src="./assets/img/category_css.jpg" class="w-100" alt="CSS" />
-            <h5>استایل‌دهی</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_data.jpg"
-              class="w-100"
-              alt="data"
-            />
-            <h5>پایگاه‌داده</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_internet.jpg"
-              class="w-100"
-              alt="internet"
-            />
-            <h5>اینترنت</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_design.jpg"
-              class="w-100"
-              alt="design"
-            />
-            <h5>دیزاین</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img src="./assets/img/category_ai.jpg" class="w-100" alt="ai" />
-            <h5>هوش‌مصنوعی</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_machin.jpg"
-              class="w-100"
-              alt="machin"
-            />
-            <h5>ماشین‌لرنینگ</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_programmer.jpg"
-              class="w-100"
-              alt="programmer"
-            />
-            <h5>برنامه‌نویسی</h5>
-          </a>
-          <a
-            href="./category.html"
-            class="category-item d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              src="./assets/img/category_pyton.jpg"
-              class="w-100"
-              alt="pyton"
-            />
-            <h5>پایتون</h5>
-          </a>
-        </div>
-      </div>
-      <!-- END Category -->
-
-      <!-- Boxes -->
-      <div class="w-100 d-flex flex-column mt-5 pt-1 pt-sm-5">
-        <div
-          class="m_title w-100 text-right mt-2 d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fa fa-bug m-0 p-0 ml-3"></i>
-            <h2 class="m-0 p-0">آخرین مقالات <span>بی باگ</span></h2>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <div
-              class="btn-title btn-next d-flex justify-content-center align-items-center"
-            >
-              <i class="fa fa-angle-right m-0 p-0"></i>
-            </div>
-            <div
-              class="btn-title btn-prev d-flex justify-content-center align-items-center mr-2"
-            >
-              <i class="fa fa-angle-left m-0 p-0"></i>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="con-boxes w-100 d-flex justify-content-between align-items-center mt-3 mt-sm-3"
-        >
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box6.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box7.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box8.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box9.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box10.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END Boxes -->
-
-      <!-- Boxes -->
-      <div class="w-100 d-flex flex-column mt-5 pt-1 pt-sm-5">
-        <div
-          class="m_title w-100 text-right mt-2 d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fa fa-bug m-0 p-0 ml-3"></i>
-            <h2 class="m-0 p-0">مقالات برنامه نویسی <span>بی باگ</span></h2>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <div
-              class="btn-title btn-next d-flex justify-content-center align-items-center"
-            >
-              <i class="fa fa-angle-right m-0 p-0"></i>
-            </div>
-            <div
-              class="btn-title btn-prev d-flex justify-content-center align-items-center mr-2"
-            >
-              <i class="fa fa-angle-left m-0 p-0"></i>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="con-boxes w-100 d-flex justify-content-between align-items-center mt-3 mt-sm-3"
-        >
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box1.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box2.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box3.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box4.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box5.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END Boxes -->
-
-      <!-- Boxes -->
-      <div
-        class="w-100 d-flex flex-column mt-5 pt-1 pt-sm-5 mb-3 mb-lg-5 pb-lg-3"
-      >
-        <div
-          class="m_title w-100 text-right mt-2 d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fa fa-bug m-0 p-0 ml-3"></i>
-            <h2 class="m-0 p-0">مقالات پیشنهادی <span>بی باگ</span></h2>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <div
-              class="btn-title btn-next d-flex justify-content-center align-items-center"
-            >
-              <i class="fa fa-angle-right m-0 p-0"></i>
-            </div>
-            <div
-              class="btn-title btn-prev d-flex justify-content-center align-items-center mr-2"
-            >
-              <i class="fa fa-angle-left m-0 p-0"></i>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="con-boxes w-100 d-flex justify-content-between align-items-center mt-3 mt-sm-3"
-        >
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box11.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box12.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box13.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box14.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box15.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END Boxes -->
-
-      <!-- Slider Start -->
-      <div
-        id="carouselExampleDark"
-        class="carousel carousel-dark slide mt-5"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleDark"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
-        <div class="carousel-inner">
-          <a href="#" class="carousel-item active" data-bs-interval="10000">
-            <img
-              src="./assets/img/box/box6.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div
-              class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-            >
-              <h5>روانشناسی ترید در بازارها</h5>
-              <p class="mt-3">
-                هوش مصنوعی در پزشکی – راهنمای جامع برای متخصصان سلامت
-              </p>
-            </div>
-          </a>
-          <a href="#" class="carousel-item" data-bs-interval="2000">
-            <img
-              src="./assets/img/box/box10.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div
-              class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-            >
-              <h5>روانشناسی ترید در بازارها</h5>
-              <p class="mt-3">
-                هوش مصنوعی در پزشکی – راهنمای جامع برای متخصصان سلامت
-              </p>
-            </div>
-          </a>
-          <a href="#" class="carousel-item">
-            <img
-              src="./assets/img/box/box16.jpg"
-              class="d-block w-100"
-              alt="..."
-            />
-            <div
-              class="carousel-caption d-flex flex-column justify-content-center align-items-center"
-            >
-              <h5>روانشناسی ترید در بازارها</h5>
-              <p class="mt-3">
-                هوش مصنوعی در پزشکی – راهنمای جامع برای متخصصان سلامت
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Slider End -->
-
-      <!-- Boxes -->
-      <div class="w-100 d-flex flex-column mt-5 pt-1 pt-sm-5">
-        <div
-          class="m_title w-100 text-right mt-2 d-flex justify-content-between align-items-center"
-        >
-          <div class="d-flex justify-content-start align-items-start">
-            <i class="fa fa-bug m-0 p-0 ml-3"></i>
-            <h2 class="m-0 p-0">مقالات هوش مصنوعی <span>بی باگ</span></h2>
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <div
-              class="btn-title btn-next d-flex justify-content-center align-items-center"
-            >
-              <i class="fa fa-angle-right m-0 p-0"></i>
-            </div>
-            <div
-              class="btn-title btn-prev d-flex justify-content-center align-items-center mr-2"
-            >
-              <i class="fa fa-angle-left m-0 p-0"></i>
-            </div>
-          </div>
-        </div>
-
-        <div
-          class="con-boxes w-100 d-flex justify-content-between align-items-center mt-3 mt-sm-3"
-        >
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box16.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box17.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box18.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box3.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="box rounded">
-            <img
-              src="./assets/img/box/box8.jpg"
-              class="w-100 rounded"
-              alt="box"
-            />
-
-            <h4 class="box-title w-100 mt-3 fw-bold">
-              مزایای ChatGPT Plus چیست؟ – کاربردها و قابلیت های چت جی پی تی پلاس
-            </h4>
-            <p class="box-text w-100">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-              استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد
-              نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-              کتابهای زیادی در شصت و سه درصد
-            </p>
-
-            <div class="w-100 d-flex justify-content-end align-items-center">
-              <div
-                class="d-flex justify-content-center align-items-center ml-2"
-              >
-                <button class="btn m-0 p-0">ادامه مقاله</button>
-                <i class="fa fa-arrow-left mr-2"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- END Boxes -->
-    </body>
-
-    <!-- Margin -->
-    <div class="mt-5 pt-lg-4"></div>
-    <!-- Margin -->
-
-    <footer
-      class="d-flex flex-column flex-lg-row justify-content-between align-items-center w-100 rounded p-5 mt-5"
-    >
-      <div
-        class="d-flex justify-content-lg-start justify-content-center align-items-center w-50 w-sm-100"
-      >
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">دسته بندی ها</h4>
-          <a href="#" class="footer-link"> برنامه‌نویسی </a>
-          <a href="#" class="footer-link"> هوش‌مصنوعی </a>
-          <a href="#" class="footer-link"> ارز‌دیجیتال </a>
-          <a href="#" class="footer-link"> ماشین‌لرنینگ </a>
-          <a href="#" class="footer-link"> استایل‌دهی </a>
-        </div>
-        <div
-          class="d-flex flex-column align-items-lg-start justify-content-center align-items-center w-50"
-        >
-          <h4 class="fw-bold footer-title mb-3">ارتباط با ما</h4>
-          <a href="#" class="footer-link"> خدمات ما </a>
-          <a href="#" class="footer-link"> درباره‌ی ما </a>
-          <a href="#" class="footer-link"> همکاری با ما </a>
-          <a href="#" class="footer-link"> تبلیغات </a>
-          <a href="#" class="footer-link"> ایمیل ما </a>
-        </div>
-      </div>
-
-      <div
-        class="d-flex flex-column justify-content-center align-items-center w-50 aboutus mt-5 mt-lg-0 w-sm-100"
-      >
-        <h4 class="fw-bold footer-title mb-3">درباره ی بی باگ</h4>
-        <p class="mt-2">
-          بی‌باگ؛ محلی برای یادگیری اصولی، ساده و لذت‌بخش برنامه‌نویسی و
-          تکنولوژی. اینجا تلاش می‌کنیم با آموزش‌های کاربردی، تجربه‌های واقعی و
-          رفع باگ‌های رایج، مسیر رشد شما را هموار کنیم. هدف ما ساخت جامعه‌ای از
-          برنامه‌نویسان خلاق، مستقل و همیشه در حال یادگیری است. همراه ما بمان تا
-          دنیای کدنویسی را بی‌استرس و بی‌باگ تجربه کنیم.
-        </p>
-
-        <div
-          class="d-flex justify-content-center align-items-center mt-3 mt-lg-0"
-        >
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/telegram.png"
-              data-dark="./assets/img/telegram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/telegram.png"
-              alt="telegram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/instagram.png"
-              data-dark="./assets/img/instagram_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/instagram.png"
-              alt="instagram"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/gmail.png"
-              data-dark="./assets/img/gmail_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/gmail.png"
-              alt="gmail"
-            />
-          </div>
-          <div class="social d-flex justify-content-center align-items-center">
-            <img
-              data-light="./assets/img/youtube.png"
-              data-dark="./assets/img/youtube_dark.png"
-              class="w-100 theme-img"
-              src="./assets/img/youtube.png"
-              alt="youtube"
-            />
-          </div>
         </div>
       </div>
     </footer>
 
-    <small class="mb-2 mt-3 text-end">
-      تمام حقوق مادی و معنوی این وب سایت متعلق به <span>بی باگ</span> است.
-    </small>
+    <div
+      class="toasts"
+      id="toasts"
+      role="region"
+      aria-live="polite"
+      aria-label="اعلان ها"
+    ></div>
 
-    <!-- Jquery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="./assets/js/bootstrap/bootstrap.min.js"></script>
-    <!-- Custom -->
     <script src="./assets/js/index.js"></script>
-    <script>
-      $(document).ready(function () {
-        $(".carousel").carousel({
-          interval: 6000,
-        });
-      });
-    </script>
   </body>
 </html>
