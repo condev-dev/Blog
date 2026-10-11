@@ -1,4 +1,13 @@
-
+/* the shared toast lives in header.js; resolve it lazily because header.js
+   is loaded after this file */
+function show(text, ok) {
+  if (typeof window.notify !== "function") return;
+  window.notify({
+    type: ok ? "ok" : "err",
+    title: ok ? "انجام شد" : "یک مورد کامل نیست",
+    text: text,
+  });
+}
 document.getElementById("contactForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const n = name.value.trim(),
@@ -26,13 +35,13 @@ document.getElementById("contactForm").addEventListener("submit", (e) => {
     msg.focus();
     return show("پیامت خالی است.");
   }
-  show("پیامت رسید. زودی جواب می دهم.");
+  show("پیامت رسید. زودی جواب می دهم.", true);
   e.target.reset();
 });
 document.getElementById("newsForm").addEventListener("submit", (e) => {
   e.preventDefault();
   const v = document.getElementById("em").value.trim();
   if (!v) return show("ایمیلت را بنویس.");
-  show("عضویتت ثبت شد.");
+  show("عضویتت ثبت شد.", true);
   e.target.reset();
 });

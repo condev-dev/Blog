@@ -60,16 +60,6 @@ h1 {
   flex-wrap: wrap;
   margin-top: 2rem;
 }
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.85rem 1.25rem;
-  border-radius: 12px;
-  background: #b45309;
-  color: #fffdf7;
-  font-weight: 700;
-}
 .ghost {
   background: #fffdf7;
   color: #92400e;
@@ -96,16 +86,4 @@ h1 {
   margin: 0;
   color: #57534e;
   font-size: 0.9rem;
-}
-.toast {
-  position: fixed;
-  left: 1rem;
-  bottom: 1rem;
-  background: #fef9ef;
-  border: 1px solid #e7e5e4;
-  border-radius: 16px;
-  padding: 1rem 1.25rem;
-  box-shadow: 0 12px 32px rgba(41, 37, 36, 0.12);
-  display: none;
-  max-width: 24rem;
 }

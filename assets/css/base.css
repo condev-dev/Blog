@@ -48,9 +48,9 @@
   --t-md: 1rem;
   --t-lg: 1.125rem;
   --t-xl: 1.375rem;
-  --h-s: clamp(1.5rem, 1.24rem+1.1vw, 1.9rem);
-  --h-m: clamp(1.9rem, 1.4rem+2.2vw, 2.6rem);
-  --h-l: clamp(2.3rem, 1.5rem+3.6vw, 3.5rem);
+  --h-s: clamp(1.5rem, 1.24rem + 1.1vw, 1.9rem);
+  --h-m: clamp(1.9rem, 1.4rem + 2.2vw, 2.6rem);
+  --h-l: clamp(2.3rem, 1.5rem + 3.6vw, 3.5rem);
 }
 *,
 *::before,
@@ -183,7 +183,10 @@ em.plum {
   inset-block-start: 0;
 }
 svg.sprite {
-  display: none;
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 .ic {
   width: 1.15em;
