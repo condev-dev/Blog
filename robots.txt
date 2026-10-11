@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /404Page.html
+
+# صفحه‌های تکراری با پارامتر رهگیری نباید دو بار ایندکس شوند
+Disallow: /*?*utm_
+Disallow: /*?*ref=
+
+Sitemap: https://blog.condev.ir/sitemap.xml
